@@ -34,3 +34,5 @@ For database records, ensure that the name of the submission files (in the `reco
 - `{t5_ft, ft_scr, gemma}_test.pkl`
 
 Note that the predictions in each line of the .sql file or in each index of the list within the .pkl file must match each natural language query in 'data/test.nl' in the order they appear.
+
+For the LLM, even if you experimented with both models, you should submit only one `.sql` file and one `.pkl` file, corresponding to the model of your choice. Do not submit separate result files for each model.
