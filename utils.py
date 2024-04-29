@@ -57,6 +57,7 @@ def load_queries_and_records(sql_path: str, record_path: str):
                              records associated with each SQL query in sql_path.
     """
     read_qs = read_queries(sql_path)
+    processed_qs = [re.sub(r"\s+", " ", q).strip() for q in read_qs]
 
     if record_path is not None:
         with open(record_path, "rb") as f:
@@ -78,14 +79,16 @@ def save_queries_and_records(sql_queries: List[str], sql_path: str, record_path:
         * record_path (str): Path to save database records associated with queries
     """
     # First save the queries
-    with open(sql_path, "w") as f:
+    with open(sql_path, "w", encoding="utf8") as f:
         for query in sql_queries:
             f.write(f"{query}\n")
+        print(f"SQL queries saved to {sql_path}")
 
     # Next compute and save records
     records, error_msgs = compute_records(sql_queries)
     with open(record_path, "wb") as f:
         pickle.dump((records, error_msgs), f)
+        print(f"Records saved to {record_path}")
 
 
 def read_queries(sql_path: str):

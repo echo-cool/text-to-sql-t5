@@ -7,38 +7,62 @@ from torch.utils.data import Dataset, DataLoader
 from torch.nn.utils.rnn import pad_sequence
 
 import nltk
-nltk.download('punkt')
+
+nltk.download("punkt")
 from transformers import T5TokenizerFast
 import torch
 
 PAD_IDX = 0
+tokenizer = T5TokenizerFast.from_pretrained("google-t5/t5-small")
+
 
 class T5Dataset(Dataset):
-
     def __init__(self, data_folder, split):
-        '''
+        """
         Skeleton for the class for performing data processing for the T5 model.
 
         Some tips for implementation:
             * You should be using the 'google-t5/t5-small' tokenizer checkpoint to tokenize both
-              the encoder and decoder output. 
+              the encoder and decoder output.
             * You want to provide the decoder some beginning of sentence token. Any extra-id on the
               T5Tokenizer should serve that purpose.
             * Class behavior should be different on the test set.
-        '''
+        """
         # TODO
+        self.data_folder = data_folder
+        self.split = split
+        self.texts, self.summaries = self.process_data(data_folder, split, tokenizer)
 
     def process_data(self, data_folder, split, tokenizer):
-        # TODO
-    
+        text_file = os.path.join(data_folder, f"{split}.nl")
+        texts = load_lines(text_file)
+        tokenized_texts = [
+            tokenizer.encode(text, max_length=512, truncation=True) for text in texts
+        ]
+        if split == "test":
+            return tokenized_texts, None
+
+        sql_file = os.path.join(data_folder, f"{split}.sql")
+        sql_queries = load_lines(sql_file)
+        tokenized_sql = [
+            tokenizer.encode(sql, max_length=512, truncation=True)
+            for sql in sql_queries
+        ]
+
+        return tokenized_texts, tokenized_sql
+
     def __len__(self):
-        # TODO
+        return len(self.texts)
 
     def __getitem__(self, idx):
-        # TODO
+        item = {"input_ids": torch.tensor(self.texts[idx])}
+        if self.summaries is not None:
+            item["labels"] = torch.tensor(self.summaries[idx])
+        return item
+
 
 def normal_collate_fn(batch):
-    '''
+    """
     Collation function to perform dynamic padding for training and evaluation with the
     development or validation set.
 
@@ -52,49 +76,106 @@ def normal_collate_fn(batch):
         * decoder_inputs: Decoder input ids of shape BxT' to be fed into T5 decoder.
         * decoder_targets: The target tokens with which to train the decoder (the tokens following each decoder input)
         * initial_decoder_inputs: The very first input token to be decoder (only to be used in evaluation)
-    '''
+    """
     # TODO
-    return [], [], [], [], []
+
+    input_ids = [item["input_ids"] for item in batch]
+    labels = [item["labels"] for item in batch]
+
+    input_ids_padded = pad_sequence(input_ids, batch_first=True, padding_value=PAD_IDX)
+    labels_padded = pad_sequence(labels, batch_first=True, padding_value=PAD_IDX)
+
+    encoder_mask = (input_ids_padded != PAD_IDX).type(torch.long)
+
+    # Prepare decoder inputs by prepending with eos_token_id and removing the last token
+    decoder_inputs = [
+        torch.cat([torch.tensor([tokenizer.eos_token_id]), lbl[:-1]]) for lbl in labels
+    ]
+    decoder_inputs_padded = pad_sequence(
+        decoder_inputs, batch_first=True, padding_value=PAD_IDX
+    )
+
+    initial_decoder_inputs = decoder_inputs_padded[:, 0].unsqueeze(1)
+
+    return (
+        input_ids_padded,
+        encoder_mask,
+        decoder_inputs_padded,
+        labels_padded,
+        initial_decoder_inputs,
+    )
+
 
 def test_collate_fn(batch):
-    '''
+    """
     Collation function to perform dynamic padding for inference on the test set.
 
     Inputs:
         * batch (List[Any]): batch is a list of length batch_size, where each index contains what
                              the dataset __getitem__ function returns.
 
-    Recommended returns: 
+    Recommended returns:
         * encoder_ids: The input ids of shape BxT to be fed into the T5 encoder.
         * encoder_mask: Mask of shape BxT associated with padding tokens in the encoder input
         * initial_decoder_inputs: The very first input token to be decoder (only to be used in evaluation)
-    '''
+    """
     # TODO
-    return [], [], []
+    input_ids = [item["input_ids"] for item in batch]
+    input_ids_padded = pad_sequence(input_ids, batch_first=True, padding_value=PAD_IDX)
+    encoder_mask = (input_ids_padded != PAD_IDX).type(torch.long)
+    initial_decoder_inputs = torch.full((len(batch), 1), tokenizer.eos_token_id).type(
+        torch.long
+    )
+
+    return input_ids_padded, encoder_mask, initial_decoder_inputs
+
 
 def get_dataloader(batch_size, split):
-    data_folder = 'data'
+    data_folder = "data"
     dset = T5Dataset(data_folder, split)
     shuffle = split == "train"
     collate_fn = normal_collate_fn if split != "test" else test_collate_fn
 
-    dataloader = DataLoader(dset, batch_size=batch_size, shuffle=shuffle, collate_fn=collate_fn)
+    dataloader = DataLoader(
+        dset, batch_size=batch_size, shuffle=shuffle, collate_fn=collate_fn
+    )
     return dataloader
+
 
 def load_t5_data(batch_size, test_batch_size):
     train_loader = get_dataloader(batch_size, "train")
     dev_loader = get_dataloader(test_batch_size, "dev")
     test_loader = get_dataloader(test_batch_size, "test")
-    
+
     return train_loader, dev_loader, test_loader
 
 
 def load_lines(path):
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         lines = f.readlines()
         lines = [line.strip() for line in lines]
     return lines
 
+
+def process_data(data_folder, split, tokenizer):
+    text_file = os.path.join(data_folder, f"{split}.nl")
+    sql_file = os.path.join(data_folder, f"{split}.sql")
+    texts = load_lines(text_file)
+    sql_queries = load_lines(sql_file)
+
+    tokenized_texts = [
+        tokenizer.encode(text, max_length=512, truncation=True) for text in texts
+    ]
+    tokenized_sql = [
+        tokenizer.encode(sql, max_length=512, truncation=True) for sql in sql_queries
+    ]
+
+    return tokenized_texts, tokenized_sql
+
+
 def load_prompting_data(data_folder):
     # TODO
+    train_x, train_y = process_data(data_folder, "train", tokenizer)
+    dev_x, dev_y = process_data(data_folder, "dev", tokenizer)
+    test_x = process_data(data_folder, "test", tokenizer)
     return train_x, train_y, dev_x, dev_y, test_x

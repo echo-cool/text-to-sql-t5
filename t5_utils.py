@@ -9,10 +9,24 @@ import wandb
 
 DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
+import wandb
+
 
 def setup_wandb(args):
-    # Implement this if you wish to use wandb in your experiments
-    pass
+    """
+    Initialize wandb for experiment tracking.
+
+    Args:
+        args (dict): Contains configuration for wandb, including project name, entity, and other settings.
+    """
+    wandb.init(
+        project=args.get("project", "t5-sql-translation"),
+        entity=args.get("entity", "your_wandb_username"),
+        config=args,
+    )
+    print(
+        "wandb setup complete with project:", args.get("project", "t5-sql-translation")
+    )
 
 
 def initialize_model(args):
@@ -22,7 +36,17 @@ def initialize_model(args):
     or training a T5 model initialized with the 'google-t5/t5-small' config
     from scratch.
     """
-    pass
+    if args.finetune:
+        # Load a pretrained model
+        model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small")
+        print("Loaded pretrained T5 model.")
+    else:
+        # Initialize a model with T5 configuration from scratch
+        config = T5Config.from_pretrained("google-t5/t5-small")
+        model = T5ForConditionalGeneration(config)
+        print("Initialized T5 model from scratch with T5 small configuration.")
+
+    return model
 
 
 def mkdir(dirpath):
@@ -33,14 +57,52 @@ def mkdir(dirpath):
             pass
 
 
-def save_model(checkpoint_dir, model, best):
-    # Save model checkpoint to be able to load the model later
-    pass
+def save_model(checkpoint_dir, model, best=False):
+    """
+    Saves the current model state as a checkpoint.
+
+    Args:
+        checkpoint_dir (str): Directory where the checkpoint will be saved.
+        model (torch.nn.Module): The model instance to be saved.
+        best (bool): A flag indicating whether this checkpoint is the best performing model.
+    """
+    if not os.path.exists(checkpoint_dir):
+        os.makedirs(checkpoint_dir)
+
+    filename = "best_model.pth" if best else "checkpoint.pth"
+    checkpoint_path = os.path.join(checkpoint_dir, filename)
+
+    torch.save(model.state_dict(), checkpoint_path)
+    print(f"Model saved to {checkpoint_path}")
 
 
-def load_model_from_checkpoint(args, best):
-    # Load model from a checkpoint
-    pass
+def load_model_from_checkpoint(args, best=False):
+    """
+    Load a T5 model from a specified checkpoint.
+
+    Args:
+        args (dict): Configuration for model loading. Should include 'checkpoint_dir'.
+        best (bool): A flag to load the best performing model checkpoint.
+    """
+    # Construct the checkpoint directory based on the experiment name
+    model_type = "ft" if args.finetune else "scr"
+    checkpoint_dir = os.path.join(
+        "checkpoints", f"{model_type}_experiments", args.experiment_name
+    )
+    filename = "best_model.pth" if best else "checkpoint.pth"
+    checkpoint_path = os.path.join(checkpoint_dir, filename)
+
+    # Check if the file exists
+    if not os.path.exists(checkpoint_path):
+        raise FileNotFoundError(f"No checkpoint found at {checkpoint_path}")
+
+    # Load the model configuration from the specified T5 variant
+    config = T5Config.from_pretrained("google-t5/t5-small")
+    model = T5ForConditionalGeneration(config)
+    model.load_state_dict(torch.load(checkpoint_path))
+    print(f"Model loaded from {checkpoint_path}")
+
+    return model
 
 
 def initialize_optimizer_and_scheduler(args, model, epoch_length):

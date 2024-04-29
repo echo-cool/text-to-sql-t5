@@ -1,5 +1,7 @@
 import os
 import argparse
+import pickle
+
 from tqdm import tqdm
 
 import torch
@@ -15,7 +17,7 @@ from t5_utils import (
     setup_wandb,
 )
 from transformers import GenerationConfig
-from load_data import load_t5_data
+from load_data import load_t5_data, tokenizer
 from utils import compute_metrics, save_queries_and_records
 
 DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -41,7 +43,7 @@ def get_args():
         choices=["AdamW"],
         help="What optimizer to use",
     )
-    parser.add_argument("--learning_rate", type=float, default=0)
+    parser.add_argument("--learning_rate", type=float, default=0.001)
     parser.add_argument("--weight_decay", type=float, default=0)
     parser.add_argument("--label_smoothing", type=float, default=0)
 
@@ -61,7 +63,7 @@ def get_args():
     parser.add_argument(
         "--max_n_epochs",
         type=int,
-        default=0,
+        default=1,
         help="How many epochs to train the model for",
     )
     parser.add_argument(
@@ -94,18 +96,24 @@ def get_args():
 def train(args, model, train_loader, dev_loader, optimizer, scheduler):
     best_f1 = -1
     epochs_since_improvement = 0
-
+    experiment_name = args.experiment_name
     model_type = "ft" if args.finetune else "scr"
     checkpoint_dir = os.path.join(
         "checkpoints", f"{model_type}_experiments", args.experiment_name
     )
     gt_sql_path = os.path.join(f"data/dev.sql")
-    gt_record_path = os.path.join(f"records/dev_gt_records.pkl")
+    gt_record_path = os.path.join(f"records/ground_truth_dev.pkl")
     model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_dev.sql")
     model_record_path = os.path.join(
         f"records/t5_{model_type}_{experiment_name}_dev.pkl"
     )
+    print(f"{model_type} experiment {experiment_name} starting")
+    print(f"args: {args}")
+    if args.max_n_epochs == 0:
+        save_model(checkpoint_dir, model, best=True)
+        return
     for epoch in range(args.max_n_epochs):
+        print(f"Epoch {epoch}: Training")
         tr_loss = train_epoch(args, model, train_loader, optimizer, scheduler)
         print(f"Epoch {epoch}: Average train loss was {tr_loss}")
 
@@ -122,7 +130,7 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
             f"Epoch {epoch}: Dev loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}"
         )
         print(
-            f"Epoch {epoch}: {error_rate*100:.2f}% of the generated outputs led to SQL errors"
+            f"Epoch {epoch}: {error_rate * 100:.2f}% of the generated outputs led to SQL errors"
         )
 
         if args.use_wandb:
@@ -206,7 +214,61 @@ def eval_epoch(
     """
     # TODO
     model.eval()
-    return 0, 0, 0, 0, 0
+    total_loss = 0
+    total_tokens = 0
+    all_generated_sql = []
+    criterion = torch.nn.CrossEntropyLoss()
+
+    with torch.no_grad():
+        for batch in tqdm(dev_loader):
+            input_ids, encoder_mask, decoder_inputs, labels, initial_decoder_inputs = (
+                item.to(DEVICE) for item in batch
+            )
+            input_ids = input_ids.to(DEVICE)
+            encoder_mask = encoder_mask.to(DEVICE)
+            labels = labels.to(DEVICE)
+            model = model.to(DEVICE)
+
+            outputs = model(
+                input_ids=input_ids, attention_mask=encoder_mask, labels=labels
+            )
+            loss = criterion(
+                outputs.logits.transpose(1, 2), labels
+            )  # Adjust dimensions for CrossEntropyLoss
+            total_loss += loss.item()
+
+            # Generation and decoding
+
+            predicted_sql = model.generate(
+                input_ids, max_length=512, early_stopping=True
+            )
+            generated_sql = [
+                tokenizer.decode(
+                    g, skip_special_tokens=True, clean_up_tokenization_spaces=True
+                )
+                for g in predicted_sql
+            ]
+
+            print(generated_sql)
+            all_generated_sql.extend(generated_sql)
+
+    # Compute average loss
+    avg_loss = total_loss / len(dev_loader.dataset)
+    # Save and compute metrics
+    save_queries_and_records(all_generated_sql, model_sql_path, model_record_path)
+
+    print(
+        f"gt_sql_pth: {gt_sql_pth}\n"
+        f"model_sql_path: {model_sql_path}\n"
+        f"gt_record_path: {gt_record_path}\n"
+        f"model_record_path: {model_record_path}\n"
+    )
+
+    record_f1, record_em, sql_em, error_message = compute_metrics(
+        gt_sql_pth, model_sql_path, gt_record_path, model_record_path
+    )
+    syntax_error_rate = len(error_message) / len(all_generated_sql)
+    return avg_loss, record_f1, record_em, sql_em, syntax_error_rate
 
 
 def test_inference(args, model, test_loader, model_sql_path, model_record_path):
@@ -214,7 +276,46 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
     You must implement inference to compute your model's generated SQL queries and its associated
     database records. Implementation should be very similar to eval_epoch.
     """
-    pass
+    model.eval()
+    generated_sql_queries = []
+    generated_records = []
+
+    for batch in tqdm(test_loader):
+        encoder_input, encoder_mask, initial_decoder_input = batch
+
+        # Move tensors to the appropriate device
+        encoder_input = encoder_input.to(DEVICE)
+        encoder_mask = encoder_mask.to(DEVICE)
+        initial_decoder_input = initial_decoder_input.to(DEVICE)
+
+        # Generate output using the model
+        # Here we use greedy decoding for simplicity, you can switch to beam search if needed
+        outputs = model.generate(
+            input_ids=encoder_input,
+            attention_mask=encoder_mask,
+            decoder_start_token_id=model.config.decoder_start_token_id,
+        )
+
+        # Convert token IDs to strings
+        output_queries = [
+            tokenizer.decode(ids, skip_special_tokens=True) for ids in outputs
+        ]
+        generated_sql_queries.extend(output_queries)
+
+        # Placeholder for generating records from SQL (you'll need actual database interaction here)
+        records = ["record_placeholder" for _ in outputs]
+        generated_records.extend(records)
+
+    # Saving generated SQL queries and records to files
+    with open(model_sql_path, "w") as f:
+        for query in generated_sql_queries:
+            f.write(query + "\n")
+
+    with open(model_record_path, "wb") as f:
+        pickle.dump(generated_records, f)
+
+    print(f"Generated SQL queries saved to {model_sql_path}")
+    print(f"Associated records saved to {model_record_path}")
 
 
 def main():
@@ -228,7 +329,8 @@ def main():
     train_loader, dev_loader, test_loader = load_t5_data(
         args.batch_size, args.test_batch_size
     )
-    model = initialize_model(args)
+    model = initialize_model(args).to(DEVICE)
+
     optimizer, scheduler = initialize_optimizer_and_scheduler(
         args, model, len(train_loader)
     )
@@ -244,7 +346,7 @@ def main():
     experiment_name = args.experiment_name
     model_type = "ft" if args.finetune else "scr"
     gt_sql_path = os.path.join(f"data/dev.sql")
-    gt_record_path = os.path.join(f"records/dev_gt_records.pkl")
+    gt_record_path = os.path.join(f"records/ground_truth_dev.pkl")
     model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_dev.sql")
     model_record_path = os.path.join(
         f"records/t5_{model_type}_{experiment_name}_dev.pkl"
@@ -259,11 +361,14 @@ def main():
         model_record_path,
     )
     print(
-        "Dev set results: Loss: {dev_loss}, Record F1: {dev_record_f1}, Record EM: {dev_record_em}, SQL EM: {dev_sql_em}"
+        f"Dev set results: Loss: {dev_loss}, Record F1: {dev_record_f1}, Record EM: {dev_record_em}, SQL EM: {dev_sql_em}"
     )
     print(
-        f"Dev set results: {dev_error_rate*100:.2f}% of the generated outputs led to SQL errors"
+        f"Dev set results: {dev_error_rate * 100:.2f}% of the generated outputs led to SQL errors"
     )
+    # print(
+    #     f"Dev set results: {dev_error_rate}% of the generated outputs led to SQL errors"
+    # )
 
     # Test set
     model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_test.sql")
