@@ -263,12 +263,14 @@ def eval_epoch(
             labels = labels.to(DEVICE)
             model = model.to(DEVICE)
 
-            outputs = model(
-                input_ids=input_ids, attention_mask=encoder_mask, labels=labels
-            )
-            loss = criterion(
-                outputs.logits.transpose(1, 2), labels
-            )  # Adjust dimensions for CrossEntropyLoss
+            logits = model(
+                input_ids=input_ids,
+                attention_mask=encoder_mask,
+                decoder_input_ids=decoder_inputs,
+            )["logits"]
+
+            non_pad = labels != PAD_IDX
+            loss = criterion(logits[non_pad], labels[non_pad])
             total_loss += loss.item()
 
             # Generation and decoding
