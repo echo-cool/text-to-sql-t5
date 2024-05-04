@@ -370,7 +370,14 @@ def main():
     model_record_path = os.path.join(
         f"records/t5_{model_type}_{experiment_name}_dev.pkl"
     )
-    dev_loss, dev_record_em, dev_record_f1, dev_sql_em, dev_error_rate, error_message = eval_epoch(
+    (
+        dev_loss,
+        dev_record_em,
+        dev_record_f1,
+        dev_sql_em,
+        dev_error_rate,
+        error_message,
+    ) = eval_epoch(
         args,
         model,
         dev_loader,
