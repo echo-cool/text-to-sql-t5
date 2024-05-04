@@ -143,12 +143,14 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         if os.path.exists("logs"):
             log_path = "logs/log-t5.txt"
             with open(log_path, "a") as f:
+                f.write(f"Epoch {epoch}: train_loss: {tr_loss}\n")
                 f.write(
-                    f"Epoch {epoch}: Dev loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}\n"
+                    f"Epoch {epoch}: eval_loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}\n"
                 )
                 f.write(
                     f"Epoch {epoch}: {error_rate * 100:.2f}% of the generated outputs led to SQL errors\n"
                 )
+                f.write(f"Epoch {epoch}: {error_message}\n")
 
         print(
             f"Epoch {epoch}: Dev loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}"
@@ -189,7 +191,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-        train_loader
+            train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -219,13 +221,13 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-    args,
-    model,
-    dev_loader,
-    gt_sql_pth,
-    model_sql_path,
-    gt_record_path,
-    model_record_path,
+        args,
+        model,
+        dev_loader,
+        gt_sql_pth,
+        model_sql_path,
+        gt_record_path,
+        model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track
