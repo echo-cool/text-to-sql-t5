@@ -43,7 +43,7 @@ def get_args():
         choices=["AdamW"],
         help="What optimizer to use",
     )
-    parser.add_argument("--learning_rate", type=float, default=0.0001)
+    parser.add_argument("--learning_rate", type=float, default=0.001)
     parser.add_argument("--weight_decay", type=float, default=0.01)
     parser.add_argument("--label_smoothing", type=float, default=0.1)
 
@@ -247,8 +247,9 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-
-            print(generated_sql)
+            print(f"Input: {tokenizer.decode(input_ids, skip_special_tokens=True)}\n"
+                  f"Generated SQL: {generated_sql}\n")
+            # print(generated_sql)
             all_generated_sql.extend(generated_sql)
 
     # Compute average loss
