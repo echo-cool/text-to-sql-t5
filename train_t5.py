@@ -43,7 +43,7 @@ def get_args():
         choices=["AdamW"],
         help="What optimizer to use",
     )
-    parser.add_argument("--learning_rate", type=float, default=0.001)
+    parser.add_argument("--learning_rate", type=float, default=0.005)
     parser.add_argument("--weight_decay", type=float, default=0.01)
     parser.add_argument("--label_smoothing", type=float, default=0.1)
 
@@ -114,10 +114,16 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         return
 
     if os.path.exists("logs"):
-        log_path = "logs/log-t5.txt"
-        with open(log_path, "w") as f:
-            f.write(f"Starting {model_type} experiment {experiment_name}\n")
-            f.write(f"args: {args}\n")
+        pass
+    else:
+        os.makedirs("logs")
+
+    log_path = "logs/log-t5.txt"
+    with open(log_path, "w") as f:
+        f.write(f"Starting {model_type} experiment {experiment_name}\n")
+        # f.write(f"args: {args}\n")
+        for arg in vars(args):
+            f.write(f"{arg}: {getattr(args, arg)}\n")
 
     for epoch in range(args.max_n_epochs):
         print(f"Epoch {epoch}: Training")
@@ -183,7 +189,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-        train_loader
+            train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -213,13 +219,13 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-    args,
-    model,
-    dev_loader,
-    gt_sql_pth,
-    model_sql_path,
-    gt_record_path,
-    model_record_path,
+        args,
+        model,
+        dev_loader,
+        gt_sql_pth,
+        model_sql_path,
+        gt_record_path,
+        model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track

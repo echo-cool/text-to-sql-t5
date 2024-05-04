@@ -31,6 +31,8 @@ def save_logs(output_path, sql_em, record_em, record_f1, error_msgs):
     Save the logs of the experiment to files.
     You can change the format as needed.
     """
+    if not os.path.exists(os.path.dirname(output_path)):
+        os.makedirs(os.path.dirname(output_path))
     with open(output_path, "w") as f:
         f.write(
             f"SQL EM: {sql_em}\nRecord EM: {record_em}\nRecord F1: {record_f1}\nModel Error Messages:\n"
