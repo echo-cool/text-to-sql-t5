@@ -132,6 +132,7 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
 
         eval_loss, record_f1, record_em, sql_em, error_rate, error_message = eval_epoch(
             args,
+            epoch,
             model,
             dev_loader,
             gt_sql_path,
@@ -191,7 +192,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-        train_loader
+            train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -221,13 +222,14 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-    args,
-    model,
-    dev_loader,
-    gt_sql_pth,
-    model_sql_path,
-    gt_record_path,
-    model_record_path,
+        args,
+        epoch_number,
+        model,
+        dev_loader,
+        gt_sql_pth,
+        model_sql_path,
+        gt_record_path,
+        model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track
@@ -244,6 +246,11 @@ def eval_epoch(
     total_tokens = 0
     all_generated_sql = []
     criterion = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
+    if not os.path.exists("logs/sql"):
+        os.makedirs("logs/sql")
+
+    with open(f'logs/sql/epoch_sql_{epoch_number}.txt', 'w') as f:
+        f.write(f"Epoch {epoch_number}\n")
 
     with torch.no_grad():
         for batch in tqdm(dev_loader):
@@ -274,9 +281,10 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
+            with open(f'logs/sql/epoch_sql_{epoch_number}.txt', 'a') as f:
+                for sql_command in generated_sql:
+                    f.write(sql_command + '\n')
 
-            for sql_command in generated_sql:
-                print(sql_command)
             all_generated_sql.extend(generated_sql)
 
     # Compute average loss
@@ -387,6 +395,7 @@ def main():
         error_message,
     ) = eval_epoch(
         args,
+        None,
         model,
         dev_loader,
         gt_sql_path,
