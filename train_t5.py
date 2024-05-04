@@ -312,47 +312,41 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
     You must implement inference to compute your model's generated SQL queries and its associated
     database records. Implementation should be very similar to eval_epoch.
     """
-    model.eval()
-    generated_sql_queries = []
-    generated_records = []
+    model.eval()  # Set the model to evaluation mode
+    all_generated_sql = []
 
-    for batch in tqdm(test_loader):
-        encoder_input, encoder_mask, initial_decoder_input = batch
+    if not os.path.exists("logs/sql"):
+        os.makedirs("logs/sql")
 
-        # Move tensors to the appropriate device
-        encoder_input = encoder_input.to(DEVICE)
-        encoder_mask = encoder_mask.to(DEVICE)
-        initial_decoder_input = initial_decoder_input.to(DEVICE)
+    # File to store generated SQL queries
+    with open(f"logs/sql/inference_sql.txt", "w") as f:
+        f.write("Inference Results\n")
 
-        # Generate output using the model
-        # Here we use greedy decoding for simplicity, you can switch to beam search if needed
-        outputs = model.generate(
-            input_ids=encoder_input,
-            attention_mask=encoder_mask,
-            decoder_start_token_id=model.config.decoder_start_token_id,
-        )
+    with torch.no_grad():
+        for batch in tqdm(test_loader):
+            input_ids, encoder_mask, initial_decoder_inputs = (
+                item.to(DEVICE) for item in batch
+            )
+            # Generate SQL queries
+            predicted_sql = model.generate(
+                input_ids, attention_mask=encoder_mask, max_length=512
+            )
+            generated_sql = [
+                tokenizer.decode(
+                    g, skip_special_tokens=True, clean_up_tokenization_spaces=True
+                )
+                for g in predicted_sql
+            ]
+            with open("logs/sql/inference_sql.txt", "a") as f:
+                for sql_command in generated_sql:
+                    f.write(sql_command + "\n")
 
-        # Convert token IDs to strings
-        output_queries = [
-            tokenizer.decode(ids, skip_special_tokens=True) for ids in outputs
-        ]
-        generated_sql_queries.extend(output_queries)
+            all_generated_sql.extend(generated_sql)
 
-        # Placeholder for generating records from SQL (you'll need actual database interaction here)
-        records = ["record_placeholder" for _ in outputs]
-        generated_records.extend(records)
-
-    # Saving generated SQL queries and records to files
-    with open(model_sql_path, "w", encoding="utf8") as f:
-        for query in generated_sql_queries:
-            f.write(query + "\n")
-
-    with open(model_record_path, "wb") as f:
-        pickle.dump(generated_records, f)
-
-    print(f"Generated SQL queries saved to {model_sql_path}")
-    print(f"Associated records saved to {model_record_path}")
-
+    # Save the generated queries and records
+    save_queries_and_records(all_generated_sql, model_sql_path, model_record_path)
+    print(f"model_sql_path: {model_sql_path}\nmodel_record_path: {model_record_path}\n")
+    print("Inference completed and results saved.")
 
 def main():
     # Get key arguments
@@ -414,9 +408,9 @@ def main():
     )
 
     # Test set
-    model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_test.sql")
+    model_sql_path = os.path.join(f"results/t5_{model_type}_test.sql")
     model_record_path = os.path.join(
-        f"records/t5_{model_type}_{experiment_name}_test.pkl"
+        f"records/t5_{model_type}_test.pkl"
     )
     test_inference(args, model, test_loader, model_sql_path, model_record_path)
 
