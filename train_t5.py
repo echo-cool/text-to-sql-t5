@@ -43,9 +43,9 @@ def get_args():
         choices=["AdamW"],
         help="What optimizer to use",
     )
-    parser.add_argument("--learning_rate", type=float, default=0.001)
-    parser.add_argument("--weight_decay", type=float, default=0)
-    parser.add_argument("--label_smoothing", type=float, default=0)
+    parser.add_argument("--learning_rate", type=float, default=0.0001)
+    parser.add_argument("--weight_decay", type=float, default=0.01)
+    parser.add_argument("--label_smoothing", type=float, default=0.1)
 
     parser.add_argument(
         "--scheduler_type",
@@ -57,19 +57,19 @@ def get_args():
     parser.add_argument(
         "--num_warmup_epochs",
         type=int,
-        default=0,
+        default=1,
         help="How many epochs to warm up the learning rate for if using a scheduler",
     )
     parser.add_argument(
         "--max_n_epochs",
         type=int,
-        default=1,
+        default=10,
         help="How many epochs to train the model for",
     )
     parser.add_argument(
         "--patience_epochs",
         type=int,
-        default=0,
+        default=3,
         help="If validation performance stops improving, how many epochs should we wait before stopping?",
     )
 
@@ -87,7 +87,7 @@ def get_args():
 
     # Data hyperparameters
     parser.add_argument("--batch_size", type=int, default=16)
-    parser.add_argument("--test_batch_size", type=int, default=16)
+    parser.add_argument("--test_batch_size", type=int, default=1)
 
     args = parser.parse_args()
     return args
@@ -158,7 +158,7 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
             break
 
 
-def train_epoch(args, model, train_loader, optimizer, scheduler):
+def train_epoch(args, model, train_loader, optimizer, scheduler) -> float:
     model.train()
     total_loss = 0
     total_tokens = 0
@@ -173,25 +173,26 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
         decoder_input = decoder_input.to(DEVICE)
         decoder_targets = decoder_targets.to(DEVICE)
 
-        logits = model(
-            input_ids=encoder_input,
-            attention_mask=encoder_mask,
-            decoder_input_ids=decoder_input,
-        )["logits"]
+        # Forward pass
+        output = model(encoder_input, encoder_mask, decoder_input)
+        logits = output.logits  # Access logits from the model's output
 
-        non_pad = decoder_targets != PAD_IDX
-        loss = criterion(logits[non_pad], decoder_targets[non_pad])
-        loss.backward()
+        # Compute loss
+        loss = criterion(logits.view(-1, logits.size(-1)), decoder_targets.view(-1))
+        loss.backward()  # Perform backpropagation
+
+        # Update model parameters
         optimizer.step()
-        if scheduler is not None:
-            scheduler.step()
+        scheduler.step()  # Update learning rate
 
-        with torch.no_grad():
-            num_tokens = torch.sum(non_pad).item()
-            total_loss += loss.item() * num_tokens
-            total_tokens += num_tokens
+        # Accumulate loss and calculate tokens for averaging
+        total_loss += loss.item() * decoder_targets.numel()
+        total_tokens += decoder_targets.numel()
 
-    return total_loss / total_tokens
+    # Compute average loss over all tokens
+    average_loss = total_loss / total_tokens
+
+    return average_loss
 
 
 def eval_epoch(
@@ -239,9 +240,7 @@ def eval_epoch(
 
             # Generation and decoding
 
-            predicted_sql = model.generate(
-                input_ids, max_length=512, early_stopping=True
-            )
+            predicted_sql = model.generate(input_ids)
             generated_sql = [
                 tokenizer.decode(
                     g, skip_special_tokens=True, clean_up_tokenization_spaces=True
@@ -307,7 +306,7 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
         generated_records.extend(records)
 
     # Saving generated SQL queries and records to files
-    with open(model_sql_path, "w") as f:
+    with open(model_sql_path, "w", encoding="utf8") as f:
         for query in generated_sql_queries:
             f.write(query + "\n")
 
@@ -363,12 +362,12 @@ def main():
     print(
         f"Dev set results: Loss: {dev_loss}, Record F1: {dev_record_f1}, Record EM: {dev_record_em}, SQL EM: {dev_sql_em}"
     )
-    print(
-        f"Dev set results: {dev_error_rate * 100:.2f}% of the generated outputs led to SQL errors"
-    )
     # print(
-    #     f"Dev set results: {dev_error_rate}% of the generated outputs led to SQL errors"
+    #     f"Dev set results: {dev_error_rate * 100:.2f}% of the generated outputs led to SQL errors"
     # )
+    print(
+        f"Dev set results: {dev_error_rate * 100}% of the generated outputs led to SQL errors"
+    )
 
     # Test set
     model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_test.sql")

@@ -12,8 +12,9 @@ nltk.download("punkt")
 from transformers import T5TokenizerFast
 import torch
 
-PAD_IDX = 0
 tokenizer = T5TokenizerFast.from_pretrained("google-t5/t5-small")
+PAD_IDX = tokenizer.pad_token_id
+# print(tokenizer.pad_token_id)
 
 
 class T5Dataset(Dataset):
@@ -36,18 +37,13 @@ class T5Dataset(Dataset):
     def process_data(self, data_folder, split, tokenizer):
         text_file = os.path.join(data_folder, f"{split}.nl")
         texts = load_lines(text_file)
-        tokenized_texts = [
-            tokenizer.encode(text, max_length=512, truncation=True) for text in texts
-        ]
+        tokenized_texts = [tokenizer.encode(text) for text in texts]
         if split == "test":
             return tokenized_texts, None
 
         sql_file = os.path.join(data_folder, f"{split}.sql")
         sql_queries = load_lines(sql_file)
-        tokenized_sql = [
-            tokenizer.encode(sql, max_length=512, truncation=True)
-            for sql in sql_queries
-        ]
+        tokenized_sql = [tokenizer.encode(sql) for sql in sql_queries]
 
         return tokenized_texts, tokenized_sql
 
@@ -159,22 +155,20 @@ def load_lines(path):
 
 def process_data(data_folder, split, tokenizer):
     text_file = os.path.join(data_folder, f"{split}.nl")
-    sql_file = os.path.join(data_folder, f"{split}.sql")
     texts = load_lines(text_file)
-    sql_queries = load_lines(sql_file)
 
-    tokenized_texts = [
-        tokenizer.encode(text, max_length=512, truncation=True) for text in texts
-    ]
-    tokenized_sql = [
-        tokenizer.encode(sql, max_length=512, truncation=True) for sql in sql_queries
-    ]
+    tokenized_texts = [text for text in texts]
+    if split == "test":
+        return tokenized_texts, None
+
+    sql_file = os.path.join(data_folder, f"{split}.sql")
+    sql_queries = load_lines(sql_file)
+    tokenized_sql = [sql for sql in sql_queries]
 
     return tokenized_texts, tokenized_sql
 
 
 def load_prompting_data(data_folder):
-    # TODO
     train_x, train_y = process_data(data_folder, "train", tokenizer)
     dev_x, dev_y = process_data(data_folder, "dev", tokenizer)
     test_x = process_data(data_folder, "test", tokenizer)

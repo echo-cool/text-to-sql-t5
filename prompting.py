@@ -18,6 +18,7 @@ from load_data import load_prompting_data
 DEVICE = (
     torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 )  # you can add mps
+MAX_NEW_TOKENS = 512
 
 
 def get_args():
@@ -73,7 +74,33 @@ def create_prompt(sentence, k):
         * sentence (str): A text string
         * k (int): Number of examples in k-shot prompting
     """
-    # TODO
+    # base_prompt = (f"Translate the following text into an SQL query\n"
+    #                f"**You should only output the SQL command without any explanations**\n"
+    #                f"\n"
+    #                f"\n"
+    #                f"For example:"
+    #                f"INPUT:\n"
+    #                f"TEXT: i'm starting from denver\n"
+    #                f"OUTPUT:\n"
+    #                f"SQL: SELECT DISTINCT flight_1.flight_id FROM flight flight_1 , airport_service airport_service_1 , city city_1 WHERE flight_1.from_airport = airport_service_1.airport_code AND airport_service_1.city_code = city_1.city_code AND city_1.city_name = 'DENVER'\n"
+    #                f"\n"
+    #                f"INPUT:\n"
+    #                f"TEXT: {sentence}\n"
+    #                f"SQL: ")
+    base_prompt = (
+        f"Translate the following text into an SQL query\n"
+        f"Text: {sentence}\n"
+        f"SQL:"
+    )
+    if k > 0:
+        example_prompts = [
+            f"Text: Enter an example text here.\nSQL: Enter corresponding SQL here.\n"
+            for _ in range(k)
+        ]
+        full_prompt = "\n".join(example_prompts) + base_prompt
+    else:
+        full_prompt = base_prompt
+    return full_prompt
 
 
 def exp_kshot(tokenizer, model, inputs, k):
@@ -92,8 +119,11 @@ def exp_kshot(tokenizer, model, inputs, k):
     raw_outputs = []
     extracted_queries = []
 
-    for i, sentence in tqdm(enumerate(inputs)):
+    for i, sentence in tqdm(enumerate(inputs), total=len(inputs)):
         prompt = create_prompt(sentence, k)  # Looking at the prompt may also help
+
+        tqdm.write(f"Input: {sentence}")
+        # tqdm.write(f"Prompt: {prompt}")
 
         input_ids = tokenizer(prompt, return_tensors="pt").to(DEVICE)
         outputs = model.generate(
@@ -107,6 +137,10 @@ def exp_kshot(tokenizer, model, inputs, k):
         # Extract the SQL query
         extracted_query = extract_sql_query(response)
         extracted_queries.append(extracted_query)
+
+        # tqdm.write(f"Response: {response}")
+        tqdm.write(f"Extracted query: {extracted_query}")
+
     return raw_outputs, extracted_queries
 
 
@@ -118,7 +152,12 @@ def eval_outputs(
 
     Add/modify the arguments and code as needed.
     """
-    # TODO
+    sql_em, record_em, record_f1, model_error_msgs = compute_metrics(
+        gt_sql_pth, model_sql_path, gt_record_path, model_record_path
+    )
+
+    error_rate = len(model_error_msgs) / len(eval_y) if eval_y else 0
+
     return sql_em, record_em, record_f1, model_error_msgs, error_rate
 
 
@@ -181,35 +220,42 @@ def main():
     for eval_split in ["dev", "test"]:
         eval_x, eval_y = (dev_x, dev_y) if eval_split == "dev" else (test_x, None)
 
-        raw_outputs, extracted_queries = exp_kshot(tokenizer, model, eval_x, k)
+        # raw_outputs, extracted_queries = exp_kshot(tokenizer, model, eval_x, shot)
 
         # You can add any post-processing if needed
         # You can compute the records with `compute_records``
 
-        gt_query_records = f"records/{eval_split}_gt_records.pkl"
         gt_sql_path = os.path.join(f"data/{eval_split}.sql")
-        gt_record_path = os.path.join(f"records/{eval_split}_gt_records.pkl")
+        gt_record_path = os.path.join(f"records/ground_truth_{eval_split}.pkl")
+
         model_sql_path = os.path.join(f"results/gemma_{experiment_name}_dev.sql")
         model_record_path = os.path.join(f"records/gemma_{experiment_name}_dev.pkl")
+
+        # save_queries_and_records(
+        #     sql_queries=extracted_queries,
+        #     sql_path=model_sql_path,
+        #     record_path=model_record_path,
+        # )
+
         sql_em, record_em, record_f1, model_error_msgs, error_rate = eval_outputs(
             eval_x,
             eval_y,
-            gt_path=gt_sql_path,
-            model_path=model_sql_path,
-            gt_query_records=gt_query_records,
-            model_query_records=model_record_path,
+            gt_sql_path,
+            model_sql_path,
+            gt_record_path,
+            model_record_path,
         )
         print(f"{eval_split} set results: ")
         print(f"Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}")
         print(
-            f"{eval_split} set results: {error_rate*100:.2f}% of the generated outputs led to SQL errors"
+            f"{eval_split} set results: {error_rate * 100:.2f}% of the generated outputs led to SQL errors"
         )
 
         # Save results
         # You can for instance use the `save_queries_and_records` function
 
         # Save logs, if needed
-        log_path = ""  # to specify
+        log_path = "logs/log.txt"  # to specify
         save_logs(log_path, sql_em, record_em, record_f1, model_error_msgs)
 
 

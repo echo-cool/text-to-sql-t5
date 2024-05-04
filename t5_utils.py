@@ -20,13 +20,11 @@ def setup_wandb(args):
         args (dict): Contains configuration for wandb, including project name, entity, and other settings.
     """
     wandb.init(
-        project=args.get("project", "t5-sql-translation"),
-        entity=args.get("entity", "your_wandb_username"),
+        project="t5-sql-translation",
+        entity="yuyang-wang821",
         config=args,
     )
-    print(
-        "wandb setup complete with project:", args.get("project", "t5-sql-translation")
-    )
+    print("wandb setup complete with project:", "t5-sql-translation")
 
 
 def initialize_model(args):
