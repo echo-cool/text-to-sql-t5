@@ -158,7 +158,8 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
             break
 
 
-def train_epoch(args, model, train_loader, optimizer, scheduler) -> float:
+
+def train_epoch(args, model, train_loader, optimizer, scheduler):
     model.train()
     total_loss = 0
     total_tokens = 0
@@ -173,26 +174,26 @@ def train_epoch(args, model, train_loader, optimizer, scheduler) -> float:
         decoder_input = decoder_input.to(DEVICE)
         decoder_targets = decoder_targets.to(DEVICE)
 
-        # Forward pass
-        output = model(encoder_input, encoder_mask, decoder_input)
-        logits = output.logits  # Access logits from the model's output
+        logits = model(
+            input_ids=encoder_input,
+            attention_mask=encoder_mask,
+            decoder_input_ids=decoder_input,
+        )["logits"]
 
-        # Compute loss
-        loss = criterion(logits.view(-1, logits.size(-1)), decoder_targets.view(-1))
-        loss.backward()  # Perform backpropagation
-
-        # Update model parameters
+        non_pad = decoder_targets != PAD_IDX
+        loss = criterion(logits[non_pad], decoder_targets[non_pad])
+        loss.backward()
         optimizer.step()
-        scheduler.step()  # Update learning rate
+        if scheduler is not None:
+            scheduler.step()
 
-        # Accumulate loss and calculate tokens for averaging
-        total_loss += loss.item() * decoder_targets.numel()
-        total_tokens += decoder_targets.numel()
+        with torch.no_grad():
+            num_tokens = torch.sum(non_pad).item()
+            total_loss += loss.item() * num_tokens
+            total_tokens += num_tokens
 
-    # Compute average loss over all tokens
-    average_loss = total_loss / total_tokens
+    return total_loss / total_tokens
 
-    return average_loss
 
 
 def eval_epoch(
