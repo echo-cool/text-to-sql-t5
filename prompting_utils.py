@@ -33,5 +33,7 @@ def save_logs(output_path, sql_em, record_em, record_f1, error_msgs):
     """
     with open(output_path, "w") as f:
         f.write(
-            f"SQL EM: {sql_em}\nRecord EM: {record_em}\nRecord F1: {record_f1}\nModel Error Messages: {error_msgs}\n"
+            f"SQL EM: {sql_em}\nRecord EM: {record_em}\nRecord F1: {record_f1}\nModel Error Messages:\n"
         )
+        for index, error_msg in enumerate(error_msgs):
+            f.write(f"{index}: {error_msg}\n")

@@ -112,12 +112,19 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
     if args.max_n_epochs == 0:
         save_model(checkpoint_dir, model, best=True)
         return
+
+    if os.path.exists("logs"):
+        log_path = "logs/log-t5.txt"
+        with open(log_path, "w") as f:
+            f.write(f"Starting {model_type} experiment {experiment_name}\n")
+            f.write(f"args: {args}\n")
+
     for epoch in range(args.max_n_epochs):
         print(f"Epoch {epoch}: Training")
         tr_loss = train_epoch(args, model, train_loader, optimizer, scheduler)
         print(f"Epoch {epoch}: Average train loss was {tr_loss}")
 
-        eval_loss, record_f1, record_em, sql_em, error_rate = eval_epoch(
+        eval_loss, record_f1, record_em, sql_em, error_rate, error_message = eval_epoch(
             args,
             model,
             dev_loader,
@@ -126,6 +133,17 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
             gt_record_path,
             model_record_path,
         )
+        # save to log
+        if os.path.exists("logs"):
+            log_path = "logs/log-t5.txt"
+            with open(log_path, "a") as f:
+                f.write(
+                    f"Epoch {epoch}: Dev loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}\n"
+                )
+                f.write(
+                    f"Epoch {epoch}: {error_rate * 100:.2f}% of the generated outputs led to SQL errors\n"
+                )
+
         print(
             f"Epoch {epoch}: Dev loss: {eval_loss}, Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}"
         )
@@ -269,7 +287,7 @@ def eval_epoch(
         gt_sql_pth, model_sql_path, gt_record_path, model_record_path
     )
     syntax_error_rate = len(error_message) / len(all_generated_sql)
-    return avg_loss, record_f1, record_em, sql_em, syntax_error_rate
+    return avg_loss, record_f1, record_em, sql_em, syntax_error_rate, error_message
 
 
 def test_inference(args, model, test_loader, model_sql_path, model_record_path):
@@ -352,7 +370,7 @@ def main():
     model_record_path = os.path.join(
         f"records/t5_{model_type}_{experiment_name}_dev.pkl"
     )
-    dev_loss, dev_record_em, dev_record_f1, dev_sql_em, dev_error_rate = eval_epoch(
+    dev_loss, dev_record_em, dev_record_f1, dev_sql_em, dev_error_rate, error_message = eval_epoch(
         args,
         model,
         dev_loader,

@@ -255,7 +255,7 @@ def main():
         # You can for instance use the `save_queries_and_records` function
 
         # Save logs, if needed
-        log_path = "logs/log.txt"  # to specify
+        log_path = "logs/log-prompting.txt"  # to specify
         save_logs(log_path, sql_em, record_em, record_f1, model_error_msgs)
 
 
