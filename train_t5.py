@@ -337,7 +337,7 @@ def main():
     )
 
     # Train
-    # train(args, model, train_loader, dev_loader, optimizer, scheduler)
+    train(args, model, train_loader, dev_loader, optimizer, scheduler)
 
     # Evaluate
     model = load_model_from_checkpoint(args, best=True)
