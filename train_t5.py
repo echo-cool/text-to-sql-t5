@@ -63,7 +63,7 @@ def get_args():
     parser.add_argument(
         "--max_n_epochs",
         type=int,
-        default=10,
+        default=1,
         help="How many epochs to train the model for",
     )
     parser.add_argument(
