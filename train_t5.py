@@ -239,7 +239,9 @@ def eval_epoch(
 
             # Generation and decoding
 
-            predicted_sql = model.generate(input_ids, attention_mask=encoder_mask, max_length=512)
+            predicted_sql = model.generate(
+                input_ids, attention_mask=encoder_mask, max_length=512
+            )
             generated_sql = [
                 tokenizer.decode(
                     g, skip_special_tokens=True, clean_up_tokenization_spaces=True
