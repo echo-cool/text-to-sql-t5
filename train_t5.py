@@ -360,7 +360,6 @@ def main():
     if args.use_wandb:
         # Recommended: Using wandb (or tensorboard) for result logging can make experimentation easier
         setup_wandb(args)
-
     # Load the data and the model
     train_loader, dev_loader, test_loader = load_t5_data(
         args.batch_size, args.test_batch_size
