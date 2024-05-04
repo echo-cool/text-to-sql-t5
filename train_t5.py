@@ -87,7 +87,7 @@ def get_args():
 
     # Data hyperparameters
     parser.add_argument("--batch_size", type=int, default=16)
-    parser.add_argument("--test_batch_size", type=int, default=1)
+    parser.add_argument("--test_batch_size", type=int, default=16)
 
     args = parser.parse_args()
     return args
@@ -217,7 +217,7 @@ def eval_epoch(
     total_loss = 0
     total_tokens = 0
     all_generated_sql = []
-    criterion = torch.nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
 
     with torch.no_grad():
         for batch in tqdm(dev_loader):
@@ -248,11 +248,9 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-            # print(
-            #     f"Input: {tokenizer.decode(input_ids, skip_special_tokens=True)}\n"
-            #     f"Generated SQL: {generated_sql}\n"
-            # )
-            print(generated_sql)
+
+            for sql_command in generated_sql:
+                print(sql_command)
             all_generated_sql.extend(generated_sql)
 
     # Compute average loss
@@ -339,7 +337,7 @@ def main():
     )
 
     # Train
-    train(args, model, train_loader, dev_loader, optimizer, scheduler)
+    # train(args, model, train_loader, dev_loader, optimizer, scheduler)
 
     # Evaluate
     model = load_model_from_checkpoint(args, best=True)
