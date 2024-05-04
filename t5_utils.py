@@ -19,6 +19,9 @@ def setup_wandb(args):
     Args:
         args (dict): Contains configuration for wandb, including project name, entity, and other settings.
     """
+    wandb.login(
+        key="c23edd97e88391a7c39b05c285e644a0bc72ef34"
+    )
     wandb.init(
         project="t5-sql-translation",
         entity="yuyang-wang821",
