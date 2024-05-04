@@ -158,7 +158,6 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
             break
 
 
-
 def train_epoch(args, model, train_loader, optimizer, scheduler):
     model.train()
     total_loss = 0
@@ -193,7 +192,6 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
             total_tokens += num_tokens
 
     return total_loss / total_tokens
-
 
 
 def eval_epoch(
