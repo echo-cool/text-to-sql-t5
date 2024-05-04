@@ -247,11 +247,11 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-            print(
-                f"Input: {tokenizer.decode(input_ids, skip_special_tokens=True)}\n"
-                f"Generated SQL: {generated_sql}\n"
-            )
-            # print(generated_sql)
+            # print(
+            #     f"Input: {tokenizer.decode(input_ids, skip_special_tokens=True)}\n"
+            #     f"Generated SQL: {generated_sql}\n"
+            # )
+            print(generated_sql)
             all_generated_sql.extend(generated_sql)
 
     # Compute average loss
