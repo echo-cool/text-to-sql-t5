@@ -239,7 +239,7 @@ def eval_epoch(
 
             # Generation and decoding
 
-            predicted_sql = model.generate(input_ids)
+            predicted_sql = model.generate(input_ids, attention_mask=encoder_mask, max_length=512)
             generated_sql = [
                 tokenizer.decode(
                     g, skip_special_tokens=True, clean_up_tokenization_spaces=True
@@ -337,7 +337,7 @@ def main():
     )
 
     # Train
-    train(args, model, train_loader, dev_loader, optimizer, scheduler)
+    # train(args, model, train_loader, dev_loader, optimizer, scheduler)
 
     # Evaluate
     model = load_model_from_checkpoint(args, best=True)
