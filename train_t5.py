@@ -240,7 +240,8 @@ def eval_epoch(
     should both provide good results. If you find that this component of evaluation takes too long with your compute,
     we found the cross-entropy loss (in the evaluation set) to be well (albeit imperfectly) correlated with F1 performance.
     """
-    # TODO
+    if epoch_number is None:
+        epoch_number = "eval"
     model.eval()
     total_loss = 0
     total_tokens = 0
