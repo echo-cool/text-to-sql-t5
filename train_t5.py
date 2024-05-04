@@ -192,7 +192,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-            train_loader
+        train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -222,14 +222,14 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-        args,
-        epoch_number,
-        model,
-        dev_loader,
-        gt_sql_pth,
-        model_sql_path,
-        gt_record_path,
-        model_record_path,
+    args,
+    epoch_number,
+    model,
+    dev_loader,
+    gt_sql_pth,
+    model_sql_path,
+    gt_record_path,
+    model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track
@@ -249,7 +249,7 @@ def eval_epoch(
     if not os.path.exists("logs/sql"):
         os.makedirs("logs/sql")
 
-    with open(f'logs/sql/epoch_sql_{epoch_number}.txt', 'w') as f:
+    with open(f"logs/sql/epoch_sql_{epoch_number}.txt", "w") as f:
         f.write(f"Epoch {epoch_number}\n")
 
     with torch.no_grad():
@@ -281,9 +281,9 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-            with open(f'logs/sql/epoch_sql_{epoch_number}.txt', 'a') as f:
+            with open(f"logs/sql/epoch_sql_{epoch_number}.txt", "a") as f:
                 for sql_command in generated_sql:
-                    f.write(sql_command + '\n')
+                    f.write(sql_command + "\n")
 
             all_generated_sql.extend(generated_sql)
 
