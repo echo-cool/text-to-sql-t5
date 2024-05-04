@@ -348,6 +348,7 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
     print(f"model_sql_path: {model_sql_path}\nmodel_record_path: {model_record_path}\n")
     print("Inference completed and results saved.")
 
+
 def main():
     # Get key arguments
     args = get_args()
@@ -409,9 +410,7 @@ def main():
 
     # Test set
     model_sql_path = os.path.join(f"results/t5_{model_type}_test.sql")
-    model_record_path = os.path.join(
-        f"records/t5_{model_type}_test.pkl"
-    )
+    model_record_path = os.path.join(f"records/t5_{model_type}_test.pkl")
     test_inference(args, model, test_loader, model_sql_path, model_record_path)
 
 
