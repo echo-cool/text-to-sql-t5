@@ -119,7 +119,9 @@ def normal_collate_fn(batch):
         decoder_inputs, batch_first=True, padding_value=PAD_IDX
     )
 
-    initial_decoder_inputs = DECODER_BEGIN_TOKEN_ID
+    initial_decoder_inputs = torch.full((len(batch), 1), DECODER_BEGIN_TOKEN_ID).type(
+        torch.long
+    )
 
     return (
         input_ids_padded,
