@@ -85,6 +85,12 @@ def get_args():
         help="How should we name this experiment?",
     )
 
+    parser.add_argument(
+        "--skip_train_eval",
+        action="store_true",
+        help="If set, we will skip training and evaluation and only do inference",
+    )
+
     # Data hyperparameters
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--test_batch_size", type=int, default=16)
@@ -95,6 +101,7 @@ def get_args():
 
 def train(args, model, train_loader, dev_loader, optimizer, scheduler):
     best_f1 = -1
+    best_train_loss = np.inf
     epochs_since_improvement = 0
     experiment_name = args.experiment_name
     model_type = "ft" if args.finetune else "scr"
@@ -130,7 +137,16 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         print(f"Epoch {epoch}: Training")
         tr_loss = train_epoch(args, model, train_loader, optimizer, scheduler)
         print(f"Epoch {epoch}: Average train loss was {tr_loss}")
-
+        if args.skip_train_eval:
+            save_model(checkpoint_dir, model, best=False)
+            if tr_loss < best_train_loss:
+                best_train_loss = tr_loss
+                save_model(checkpoint_dir, model, best=True)
+            else:
+                epochs_since_improvement += 1
+            if epochs_since_improvement >= args.patience_epochs:
+                break
+            continue
         eval_loss, record_f1, record_em, sql_em, error_rate, error_message = eval_epoch(
             args,
             epoch,
