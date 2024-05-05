@@ -106,7 +106,7 @@ def compute_records(processed_qs: List[str]):
         * processed_qs (List[str]): The list of SQL queries to execute
     """
     num_threads = 30
-    timeout_secs = 120
+    timeout_secs = 60
 
     pool = ThreadPoolExecutor(num_threads)
     futures = []
