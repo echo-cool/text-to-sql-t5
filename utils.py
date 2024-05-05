@@ -58,6 +58,7 @@ def load_queries_and_records(sql_path: str, record_path: str):
     """
     read_qs = read_queries(sql_path)
     processed_qs = [re.sub(r"\s+", " ", q) for q in read_qs]
+    print("Processed queries: ", len(processed_qs))
 
     if record_path is not None:
         with open(record_path, "rb") as f:
