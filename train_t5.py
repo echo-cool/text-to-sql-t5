@@ -138,14 +138,7 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         tr_loss = train_epoch(args, model, train_loader, optimizer, scheduler)
         print(f"Epoch {epoch}: Average train loss was {tr_loss}")
         if args.skip_train_eval:
-            save_model(checkpoint_dir, model, best=False)
-            if tr_loss < best_train_loss:
-                best_train_loss = tr_loss
-                save_model(checkpoint_dir, model, best=True)
-            else:
-                epochs_since_improvement += 1
-            if epochs_since_improvement >= args.patience_epochs:
-                break
+            save_model(checkpoint_dir, model, best=True)
             continue
         eval_loss, record_f1, record_em, sql_em, error_rate, error_message = eval_epoch(
             args,
