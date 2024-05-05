@@ -286,7 +286,7 @@ def eval_epoch(
             output = model(
                 input_ids=input_ids,
                 attention_mask=encoder_mask,
-                decoder_input_ids=decoder_inputs,
+                decoder_input_ids=initial_decoder_inputs,
                 labels=labels,
             )
 
