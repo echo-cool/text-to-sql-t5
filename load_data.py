@@ -119,7 +119,7 @@ def normal_collate_fn(batch):
         decoder_inputs, batch_first=True, padding_value=PAD_IDX
     )
 
-    initial_decoder_inputs = decoder_inputs_padded[:, 0].unsqueeze(1)
+    initial_decoder_inputs = DECODER_BEGIN_TOKEN_ID
 
     return (
         input_ids_padded,
@@ -148,7 +148,7 @@ def test_collate_fn(batch):
     input_ids_padded = pad_sequence(input_ids, batch_first=True, padding_value=PAD_IDX)
     encoder_mask = (input_ids_padded != PAD_IDX).type(torch.long)
 
-    initial_decoder_inputs = torch.full((len(batch), 1), tokenizer.eos_token_id).type(
+    initial_decoder_inputs = torch.full((len(batch), 1), DECODER_BEGIN_TOKEN_ID).type(
         torch.long
     )
 
