@@ -282,7 +282,9 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-            with open(f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding='utf8') as f:
+            with open(
+                f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
+            ) as f:
                 for sql_command in generated_sql:
                     f.write(sql_command + "\n")
 
@@ -337,7 +339,7 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
                 )
                 for g in predicted_sql
             ]
-            with open("logs/sql/inference_sql.txt", "a", encoding='utf8') as f:
+            with open("logs/sql/inference_sql.txt", "a", encoding="utf8") as f:
                 for sql_command in generated_sql:
                     f.write(sql_command + "\n")
 
