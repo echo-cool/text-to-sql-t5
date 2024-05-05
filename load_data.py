@@ -64,7 +64,7 @@ class T5Dataset(Dataset):
         for sql in sql_queries:
             sql = sql.replace("\n", "")
             # sql_token = tokenizer(sql, return_tensors="pt")
-            sql_token_with_bos = tokenizer(f"{sql}", return_tensors="pt")
+            sql_token_with_bos = tokenizer(f"<extra_id_0>{sql}", return_tensors="pt")
 
             tokenized_sql.append(sql_token_with_bos)
         return tokenized_texts, tokenized_sql
