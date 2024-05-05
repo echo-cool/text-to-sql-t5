@@ -19,6 +19,7 @@ PAD_IDX = tokenizer.pad_token_id
 # print(tokenizer.pad_token_id)
 DECODER_BEGIN_TOKEN_ID = 32099
 
+
 class T5Dataset(Dataset):
     def __init__(self, data_folder, split):
         """
@@ -63,9 +64,7 @@ class T5Dataset(Dataset):
         for sql in sql_queries:
             sql = sql.replace("\n", "")
             # sql_token = tokenizer(sql, return_tensors="pt")
-            sql_token_with_bos = tokenizer(
-                f"{sql}", return_tensors="pt"
-            )
+            sql_token_with_bos = tokenizer(f"{sql}", return_tensors="pt")
 
             tokenized_sql.append(sql_token_with_bos)
         return tokenized_texts, tokenized_sql
