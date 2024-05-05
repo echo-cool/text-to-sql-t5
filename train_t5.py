@@ -208,7 +208,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     total_tokens = 0
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
-    for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
+    for encoder_input, encoder_mask, decoder_input, decoder_targets, initial_decoder_inputs in tqdm(
         train_loader
     ):
         optimizer.zero_grad()
@@ -220,7 +220,8 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
         output = model(
             input_ids=encoder_input,
             attention_mask=encoder_mask,
-            decoder_input_ids=decoder_input,
+            # decoder_input_ids=decoder_input,
+            init_decoder_input_ids=initial_decoder_inputs,
             labels=decoder_targets,
         )
 
@@ -286,7 +287,8 @@ def eval_epoch(
             output = model(
                 input_ids=input_ids,
                 attention_mask=encoder_mask,
-                decoder_input_ids=initial_decoder_inputs,
+                # decoder_input_ids=decoder_inputs,
+                init_decoder_input_ids=initial_decoder_inputs,
                 labels=labels,
             )
 
