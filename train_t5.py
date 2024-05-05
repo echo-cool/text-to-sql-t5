@@ -63,13 +63,13 @@ def get_args():
     parser.add_argument(
         "--max_n_epochs",
         type=int,
-        default=0,
+        default=10,
         help="How many epochs to train the model for",
     )
     parser.add_argument(
         "--patience_epochs",
         type=int,
-        default=3,
+        default=5,
         help="If validation performance stops improving, how many epochs should we wait before stopping?",
     )
 
@@ -316,7 +316,7 @@ def eval_epoch(
     record_f1, record_em, sql_em, error_message = compute_metrics(
         gt_sql_pth, model_sql_path, gt_record_path, model_record_path
     )
-    syntax_error_rate = len(error_message) / len(all_generated_sql)
+    syntax_error_rate = sum([1 for m in error_message if m != ""]) / len(error_message)
     return avg_loss, record_f1, record_em, sql_em, syntax_error_rate, error_message
 
 

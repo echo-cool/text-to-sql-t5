@@ -5,8 +5,9 @@ python train_t5.py --max_n_epochs 10 \
   --label_smoothing 0.1 \
   --scheduler_type cosine \
   --num_warmup_epochs 2 \
-  --patience_epochs 10 \
+  --patience_epochs 5 \
   --experiment_name experiment \
-  --batch_size 32 \
-  --test_batch_size 32 \
+  --batch_size 16 \
+  --test_batch_size 16 \
+  --finetune \
   --use_wandb

@@ -42,16 +42,12 @@ class T5Dataset(Dataset):
         texts = load_lines(text_file)
         prompts = []
         for text in texts:
-            context = "\n".join(schema)
             question = text
-            # prompt = f"""Translate English to SQL Query
-            #
+            # prompt = f"""Translate English to SQL
             # Tables:
-            # {context}
-            #
+            # {schema}
             # Question:
             # {question}
-            #
             # Answer:
             # """
             prompt = f"Translate text to SQL: {question}"
