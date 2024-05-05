@@ -63,7 +63,7 @@ def get_args():
     parser.add_argument(
         "--max_n_epochs",
         type=int,
-        default=1,
+        default=0,
         help="How many epochs to train the model for",
     )
     parser.add_argument(
@@ -203,7 +203,6 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
         logits = model(
             input_ids=encoder_input,
             attention_mask=encoder_mask,
-            decoder_input_ids=decoder_input,
         )["logits"]
 
         non_pad = decoder_targets != PAD_IDX
@@ -266,7 +265,6 @@ def eval_epoch(
             logits = model(
                 input_ids=input_ids,
                 attention_mask=encoder_mask,
-                decoder_input_ids=decoder_inputs,
             )["logits"]
 
             non_pad = labels != PAD_IDX
@@ -284,7 +282,7 @@ def eval_epoch(
                 )
                 for g in predicted_sql
             ]
-            with open(f"logs/sql/epoch_sql_{epoch_number}.txt", "a") as f:
+            with open(f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding='utf8') as f:
                 for sql_command in generated_sql:
                     f.write(sql_command + "\n")
 
@@ -339,7 +337,7 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
                 )
                 for g in predicted_sql
             ]
-            with open("logs/sql/inference_sql.txt", "a") as f:
+            with open("logs/sql/inference_sql.txt", "a", encoding='utf8') as f:
                 for sql_command in generated_sql:
                     f.write(sql_command + "\n")
 

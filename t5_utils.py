@@ -37,11 +37,11 @@ def initialize_model(args):
     """
     if args.finetune:
         # Load a pretrained model
-        model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small")
+        model = T5ForConditionalGeneration.from_pretrained("google-t5/t5-small",  torch_dtype=torch.bfloat16)
         print("Loaded pretrained T5 model.")
     else:
         # Initialize a model with T5 configuration from scratch
-        config = T5Config.from_pretrained("google-t5/t5-small")
+        config = T5Config.from_pretrained("google-t5/t5-small",  torch_dtype=torch.bfloat16)
         model = T5ForConditionalGeneration(config)
         print("Initialized T5 model from scratch with T5 small configuration.")
 

@@ -8,6 +8,8 @@ from torch.nn.utils.rnn import pad_sequence
 
 import nltk
 
+from prompting_utils import read_schema
+
 nltk.download("punkt")
 from transformers import T5TokenizerFast
 import torch
@@ -32,12 +34,30 @@ class T5Dataset(Dataset):
         # TODO
         self.data_folder = data_folder
         self.split = split
-        self.texts, self.summaries = self.process_data(data_folder, split, tokenizer)
+        self.texts, self.sql_commands = self.process_data(data_folder, split, tokenizer)
 
     def process_data(self, data_folder, split, tokenizer):
         text_file = os.path.join(data_folder, f"{split}.nl")
+        schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
         texts = load_lines(text_file)
-        tokenized_texts = [tokenizer.encode(text) for text in texts]
+        prompts = []
+        for text in texts:
+            context = "\n".join(schema)
+            question = text
+            # prompt = f"""Translate English to SQL Query
+            #
+            # Tables:
+            # {context}
+            #
+            # Question:
+            # {question}
+            #
+            # Answer:
+            # """
+            prompt = f"translate English to SQL query: {question}"
+            prompts.append(prompt)
+
+        tokenized_texts = [tokenizer.encode(text) for text in prompts]
         if split == "test":
             return tokenized_texts, None
 
@@ -52,8 +72,8 @@ class T5Dataset(Dataset):
 
     def __getitem__(self, idx):
         item = {"input_ids": torch.tensor(self.texts[idx])}
-        if self.summaries is not None:
-            item["labels"] = torch.tensor(self.summaries[idx])
+        if self.sql_commands is not None:
+            item["labels"] = torch.tensor(self.sql_commands[idx])
         return item
 
 
