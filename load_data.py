@@ -54,7 +54,7 @@ class T5Dataset(Dataset):
             #
             # Answer:
             # """
-            prompt = f"translate English to SQL query: {question}"
+            prompt = f"translate English to SQL: {question}"
             prompts.append(prompt)
 
         tokenized_texts = [tokenizer.encode(text) for text in prompts]
@@ -71,9 +71,9 @@ class T5Dataset(Dataset):
         return len(self.texts)
 
     def __getitem__(self, idx):
-        item = {"input_ids": torch.tensor(self.texts[idx])}
+        item = {"input_ids": torch.tensor(self.texts[idx], dtype=torch.long)}
         if self.sql_commands is not None:
-            item["labels"] = torch.tensor(self.sql_commands[idx])
+            item["labels"] = torch.tensor(self.sql_commands[idx], dtype=torch.long)
         return item
 
 

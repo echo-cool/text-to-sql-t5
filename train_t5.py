@@ -200,14 +200,18 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
         decoder_input = decoder_input.to(DEVICE)
         decoder_targets = decoder_targets.to(DEVICE)
 
-        logits = model(
+        output = model(
             input_ids=encoder_input,
             attention_mask=encoder_mask,
             decoder_input_ids=decoder_input,
-        )["logits"]
+            labels=decoder_targets,
+        )
+
+        logits = output["logits"]
 
         non_pad = decoder_targets != PAD_IDX
-        loss = criterion(logits[non_pad], decoder_targets[non_pad])
+        loss = output.loss
+
         loss.backward()
         optimizer.step()
         if scheduler is not None:
@@ -246,7 +250,7 @@ def eval_epoch(
     total_loss = 0
     total_tokens = 0
     all_generated_sql = []
-    criterion = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
+    # criterion = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
     if not os.path.exists("logs/sql"):
         os.makedirs("logs/sql")
 
@@ -262,16 +266,22 @@ def eval_epoch(
             encoder_mask = encoder_mask.to(DEVICE)
             labels = labels.to(DEVICE)
             model = model.to(DEVICE)
-
-            logits = model(
+            output = model(
                 input_ids=input_ids,
                 attention_mask=encoder_mask,
                 decoder_input_ids=decoder_inputs,
-            )["logits"]
+                labels=labels,
+            )
+
+            logits = output["logits"]
 
             non_pad = labels != PAD_IDX
-            loss = criterion(logits[non_pad], labels[non_pad])
-            total_loss += loss.item()
+            loss = output.loss
+
+            with torch.no_grad():
+                num_tokens = torch.sum(non_pad).item()
+                total_loss += loss.item() * num_tokens
+                total_tokens += num_tokens
 
             # Generation and decoding
 
@@ -293,7 +303,7 @@ def eval_epoch(
             all_generated_sql.extend(generated_sql)
 
     # Compute average loss
-    avg_loss = total_loss / len(dev_loader.dataset)
+    avg_loss = total_loss / num_tokens
     # Save and compute metrics
     save_queries_and_records(all_generated_sql, model_sql_path, model_record_path)
 
