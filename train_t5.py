@@ -307,7 +307,10 @@ def eval_epoch(
             # Generation and decoding
 
             predicted_sql = model.generate(
-                input_ids, attention_mask=encoder_mask, max_length=512, decoder_start_token_id=32099
+                input_ids,
+                attention_mask=encoder_mask,
+                max_length=512,
+                decoder_start_token_id=32099,
             )
             generated_sql = [
                 tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
@@ -362,7 +365,10 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
             )
             # Generate SQL queries
             predicted_sql = model.generate(
-                input_ids, attention_mask=encoder_mask, max_length=512, decoder_start_token_id=32099
+                input_ids,
+                attention_mask=encoder_mask,
+                max_length=512,
+                decoder_start_token_id=32099,
             )
             generated_sql = [
                 tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
