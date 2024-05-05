@@ -17,7 +17,7 @@ import torch
 tokenizer = T5TokenizerFast.from_pretrained("google-t5/t5-small")
 PAD_IDX = tokenizer.pad_token_id
 # print(tokenizer.pad_token_id)
-
+DECODER_BEGIN_TOKEN_ID = 32099
 
 class T5Dataset(Dataset):
     def __init__(self, data_folder, split):
@@ -50,7 +50,7 @@ class T5Dataset(Dataset):
             # {question}
             # Answer:
             # """
-            prompt = f"Translate text to SQL: {question}"
+            prompt = f"{question}"
             prompts.append(prompt)
 
         tokenized_texts = [tokenizer(text, return_tensors="pt") for text in prompts]
@@ -59,8 +59,15 @@ class T5Dataset(Dataset):
 
         sql_file = os.path.join(data_folder, f"{split}.sql")
         sql_queries = load_lines(sql_file)
-        tokenized_sql = [tokenizer(sql, return_tensors="pt") for sql in sql_queries]
+        tokenized_sql = []
+        for sql in sql_queries:
+            sql = sql.replace("\n", "")
+            # sql_token = tokenizer(sql, return_tensors="pt")
+            sql_token_with_bos = tokenizer(
+                f"{sql}", return_tensors="pt"
+            )
 
+            tokenized_sql.append(sql_token_with_bos)
         return tokenized_texts, tokenized_sql
 
     def __len__(self):
@@ -107,7 +114,7 @@ def normal_collate_fn(batch):
 
     # Prepare decoder inputs by prepending with eos_token_id and removing the last token
     decoder_inputs = [
-        torch.cat([torch.tensor([tokenizer.eos_token_id]), lbl[:-1]]) for lbl in labels
+        torch.cat([torch.tensor([DECODER_BEGIN_TOKEN_ID]), lbl[:-1]]) for lbl in labels
     ]
     decoder_inputs_padded = pad_sequence(
         decoder_inputs, batch_first=True, padding_value=PAD_IDX
