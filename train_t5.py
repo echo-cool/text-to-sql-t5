@@ -51,7 +51,7 @@ def get_args():
         "--scheduler_type",
         type=str,
         default="cosine",
-        choices=["none", "cosine", "linear"],
+        choices=["none", "cosine", "linear", "cosine_with_restarts"],
         help="Whether to use a LR scheduler and what type to use if so",
     )
     parser.add_argument(

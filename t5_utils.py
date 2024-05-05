@@ -163,6 +163,10 @@ def initialize_scheduler(args, optimizer, epoch_length):
         return transformers.get_linear_schedule_with_warmup(
             optimizer, num_warmup_steps, num_training_steps
         )
+    elif args.scheduler_type == "cosine_with_restarts":
+        return transformers.get_cosine_with_hard_restarts_schedule_with_warmup(
+            optimizer, num_warmup_steps, num_training_steps
+        )
     else:
         raise NotImplementedError
 
