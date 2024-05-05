@@ -225,7 +225,6 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
             input_ids=encoder_input,
             attention_mask=encoder_mask,
             # decoder_input_ids=decoder_input,
-            init_decoder_input_ids=initial_decoder_inputs,
             labels=decoder_targets,
         )
 
@@ -292,7 +291,6 @@ def eval_epoch(
                 input_ids=input_ids,
                 attention_mask=encoder_mask,
                 # decoder_input_ids=decoder_inputs,
-                init_decoder_input_ids=initial_decoder_inputs,
                 labels=labels,
             )
 
