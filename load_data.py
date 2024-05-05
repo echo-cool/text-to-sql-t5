@@ -54,7 +54,7 @@ class T5Dataset(Dataset):
             #
             # Answer:
             # """
-            prompt = f"translate English to SQL: {question}"
+            prompt = f"Translate text to SQL: {question}"
             prompts.append(prompt)
 
         tokenized_texts = [tokenizer(text, return_tensors="pt") for text in prompts]
@@ -144,7 +144,8 @@ def test_collate_fn(batch):
     # TODO
     input_ids = [item["input_ids"] for item in batch]
     input_ids_padded = pad_sequence(input_ids, batch_first=True, padding_value=PAD_IDX)
-    encoder_mask = [item["attention_mask"] for item in batch]
+    encoder_mask = (input_ids_padded != PAD_IDX).type(torch.long)
+
     initial_decoder_inputs = torch.full((len(batch), 1), tokenizer.eos_token_id).type(
         torch.long
     )

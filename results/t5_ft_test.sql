@@ -1,432 +1,432 @@
-SQL, welche Flüge von dallas nach phoenix gehen
-SQL, welche Flüge von phoenix bis Salzseestadt gehen
-i need a early flight from milwaukee to denver
-SQL, welche Arten von Bodentransporten in denver verfügbar sind
-SQL, welche Flüge von denver nach st. louis am Dienstag morgen gehen
-SQL ist Bodentransport in st. louis verfügbar
-SQL fliegen muss ich am Mittwoch Nachmittag von St. louis nach milwaukee fliegen.
-SQL-Flüge von Washington nach Seattle
-SQL-Flüge von Atlanta nach Meeresttle
-SQL-Flüge von San diego nach Seattle
-i would like flight information from phoenix to denver
-SQL hat ich es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es hat es geschafft, es
-SQL hat ich es geschafft, fliegende Informationen zu Flügen von pittsburgh nach phoenix zu erhalten.
-i would like information on flights leaving from washington dc to denver
-i need information on flights from washington to boston that leave on a saturday
-i have a problem with the sandbox and the sandbox.
-i have a problem with the sex of the hotel.
-SQL - ich möchte am Samstag von boston nach washington gehen
-SQL - ich benötige einen Flug von cleveland nach dallas, der vor Mittag abfährt, sehen, ob zu viele Informationen
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-SQL holen Sie die Preise von washington bis montreal
-SQL - saturday fares from washington to montreal
-SQL - saturday fares from washington to toronto
-SQL holen Sie den Samstagtarif von washington nach toronto
-SQL-Liste saturday flights from washington to boston
-SQL-Liste saturday flights from boston to washington
-SQL-Flüge von milwaukee nach dtw
-SQL-Liste von Flügen von milwaukee nach detroit
-SQL-Flüge von Detroit nach Toronto
-SQL-Flüge von toronto nach milwaukee
-SQL ersten Flug von Eichenland bis Salzseestadt am Donnerstag erhalten
-SQL - letzten Flug von Eichenland nach Salzseestadt am Mittwoch
-SQL-Liste letzten Mittwoch-Flug von Eichenland bis Salzseestadt
-SQL-Flug von toronto nach San diego fahren, wobei dtw hält
-SQL-Flüge zwischen st. petersburg und charlotte
-i have a problem with the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the swath of the
-i have a flight from milwaukee to indianapolis leaving monday before 8am
-SQL gibt es Bodentransporte am Flughafen indianapolis
-SQL - ich benötige Fluginformationen für einen Flug von indianapolis nach cleveland ab Dienstag um 12.00 Uhr
-SQL - ich benötige Fluginformationen für einen Flug von cleveland nach milwaukee, am Mittwoch nach 18 Uhr
-SQL - ich benötige Fluginformationen für Flüge, die von cleveland abfahren, nach milwaukee zurück nach 17 Uhr
-SQL - ich benötige Fluginformationen für Flüge, die von cleveland nach milwaukee abfahren, am Mittwoch nach 17 Uhr
-SQL - ich benötige Fluginformationen für Flüge, die von cleveland nach milwaukee abfahren, am Mittwoch nach 17 Uhr
-i have a problem with the sandbox and the sandbox.
-SQL gibt es Bodentransporte am Flughafen Denver
-SQL - ich benötige Flug- und Fluginformationen für einen Flug von denver nach Salzseestadt am Monday ab 17 Uhr
-SQL gibt es Bodentransporte am Flughafen der Salzseestadt
-i need a flight from salt lake city to phoenix departing wednesday after 17pm
-SQL gibt es Bodentransporte am Flughafen phoenix
-i have a problem with the sand and the sand.
-i need flight and fare information for thursday departing prior to 9am from oakland going to salt lake city
-i need flight and fare information departing from oakland to salt lake city on thursday before 8am
-i need flight numbers and airlines for flights departing from oakland to salt lake city on thursday departing before 8am
-i have a problem with the sandbox and the sandbox.
-SQL-Liste der Flughäfen in arizona nevada und california bitte
-SQL Liste california nevada arizona airports
-auf den Flughafen von arizona aufgelistet
-SQL-Liste california Flughafens
-SQL-Liste von Flügen von las vegas nach phoenix
-SQL-Liste california Flughafens
-auf den Flughäfen aufgelistet
-SQL-Liste Flüge von eiglenland bis Salzseestadt am Donnerstagnacht
-SQL-Liste Flüge von Eichenland bis Salzseestadt vor 6 Uhr morgens
-welche Fluggesellschaften zwischen Toronto und San diego fliegen
-SQL bitte auf die nachmittags Flüge zwischen st. petersburg und charlotte hinweisen
-SQL was ist tpa
-SQL, welche Flüge von cleveland nach dallas
-SQL bitte nur die Flüge von cleveland nach dallas auflisten, die vor Mittag abfahren
-SQL, welche Art von Flugzeugen fliegen von cleveland nach dallas vor Mittag
-SQL - ich benötige Informationen über Flüge von indianapolis nach seattle
-i need a flight from memphis to seattle
-i need a ticket from nashville to seattle
-i need a ticket from nashville tennessee to seattle
-SQL - ich benötige Fluginformationen von milwaukee bis tampa
-i need to rent a car at tampa
-SQL - ich benötige einen täglichen Flug von St. louis nach milwaukee
-i need flights departing from oakland and arriving salt lake city
-i need information on flights from toronto to san diego
-i need information on flights from toronto to san diego
-i want a flight from toronto to san diego
-SQL - ich benötige Informationen über Flüge zwischen st. petersburg und charlotte
-SQL - ich benötige die Flugnummern von Flügen, die aus cleveland und an dallas ankommen.
-SQL, welche Flüge von New York nach miami und zurück gehen
-Was bedeutet Code qo?
-SQL zeigen mir Flüge von milwaukee nach orlando eine Art
-SQL für das, was wir stehen
-SQL zeigen mir Flüge von milwaukee nach orlando
-Was bedeutet Code f?
-Was bedeutet Code h?
-Was bedeutet Code y?
-ap/57 - welcher Beschränkungen?
-SQL bitte zeigen Sie mir erstklassige Flüge von indianapolis nach memphis ein Weg verlassen vor 10 Uhr
-SQL jetzt zeigen mir alle Rundreise Flüge von Burbank nach Seattle, die vor 19 Uhr in Seattle ankommen
-SQL-Rundreise Flüge von orlando nach montreal bitte
-SQL dl - welche Fluggesellschaft ist
-SQL zeigen Sie mir alle delta airlines Flüge von montreal bis orlando
-SQL zeigen Sie mir alle Flüge von orlando zu montreal bitte
-welche Fluggesellschaft kw ist
-SQL bitte alle Flüge von New York nach miami jegliche Art von Klasse auflisten
-Was bedeutet Code bh?
-SQL zeigen Sie mir einen Rückflug von miami nach jfk bitte
-Was bedeutet Code bh?
-Was bedeutet Code bh?
-Was bedeutet Code bh?
-Was bedeutet Code bh?
-SQL zeigen Sie mir eine Art Flüge von milwaukee nach orlando nach 18 Uhr am Mittwoch
-SQL zeigen Sie mir die Flüge von indianapolis nach memphis
-SQL zeigen mir Rundreise Flüge von Burbank nach Seattle
-SQL zeigen Sie mir Rundreise Flüge von orlando nach montreal
-SQL zeigen Sie mir nichtstop Flüge von montreal nach orlando
-SQL zeigen Sie mir Rundreisen zwischen montreal und orlando
-SQL zeigen Sie mir Rundreise Flüge von montreal nach orlando
-SQL zeigen Sie mir die billigsten Einwegflüge von montreal nach orlando
-SQL zeigen Sie mir die billigsten Einweg Flüge von orlando nach montreal
-SQL kansas city to las vegas economy
-SQL kansas city to las vegas economy
-SQL, welche Fluggesellschaft ist hp
-SQL-Beförderung in las vegas
-SQL-Beförderung für las vegas
-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL
-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL-SQL
-SQL baltimore to kansas city economy
-SQL, welche Fluggesellschaft wir sind
-welche Fluggesellschaft wir ist
-welche Fluggesellschaft wir ist
-welche Fluggesellschaft wir ist
-welche Fluggesellschaft wir ist
-SQL columbus zu chicago eine Art vor 10am
-SQL, welche Fluggesellschaft ist hp
-SQL st petersburg to detroit
-SQL von milwaukee nach orlando eine Art nach 17.00 Uhr Mittwoch
-SQL und von milwaukee bis atlanta vor 10 Uhr täglich
-SQL - welche Fluggesellschaft ist yx
-SQL zeigen Sie mir alle Flüge von San jose nach phoenix
-SQL zeigen Sie mir alle Flüge von San jose nach phoenix
-SQL, welche Fluggesellschaft ist hp
-SQL zeigen mir Bodentransport in phoenix
-SQL zeigen mir Flüge von phoenix nach Fort Worth
-SQL zeigen mir Bodentransport in Fort Worth
-SQL zeigen mir Flüge von Fort worth nach san jose
-SQL zeigen mir erste Klasse Flüge von New York nach miami Rundreise
-SQL zeigen mir erste Klasse Flüge von New York nach miami Rundreise
-SQL zeigen mir alle Rundreise Flüge von New York nach miami nonstop
-SQL zeigen mir alle Rundreise Flüge von miami nach New York nonstop
-SQL zeigen mir eine Art Flüge von indianapolis nach memphis vor 10 Uhr an jedem Tag
-Was bedeutet Code f?
-SQL zeigen Sie mir Rundreise Flüge von Burbank nach Tacoma
-Was bedeutet die Einschränkung ap58
-Was bedeutet Code h?
-SQL, welche Fluggesellschaft als
-SQL, welche Fluggesellschaft als
-SQL, welche Fluggesellschaft als
-SQL, welche Fluggesellschaft ist ein s als in sam
-SQL zeigen Sie mir nichtstop Flüge von St. petersburg nach toronto
-SQL zeigen Sie mir nichtstop Flüge von toronto nach st. petersburg
-SQL zeigen Sie mir die Nonstop-Flüge und -Tarife von toronto bis st. petersburg
-SQL zeigen Sie mir die Nonstop-Flüge von toronto nach St. petersburg
-SQL, welche Fluggesellschaft ist hp
-SQL-Liste von Flügen von Chicago nach San diego
-SQL-Liste von Flügen von Chicago nach San diego
-SQL-Liste von Flügen von kansas Stadt bis denver
-SQL-Liste von Flügen von denver nach phoenix
-SQL-Liste von Flügen von phoenix nach las vegas
-SQL-Liste von Flügen von las vegas nach San diego
-SQL-Liste Flüge von Chicago nach Kansas Stadt am Morgen
-SQL-Liste von Flügen von houston nach san jose
-SQL-Liste von Flügen von houston nach milwaukee
-SQL-Liste von Flügen von milwaukee nach san jose am Mittwoch
-SQL-Liste von Flügen von san jose nach dallas am Freitag
-SQL-Liste von Flügen von dallas nach houston
-SQL-Distanz von den Flughäfen bis zur Innenstadt in New York auflisten
-SQL-Liste der Flughäfen in New York
-SQL-Liste der Flughäfen in New York
-SQL-Liste der Flughäfen in la
-auf den Flughäfen aufgelistet
-SQL-Liste der Flughäfen in la
-SQL-Liste der Flughäfen in la
-auf den Flughäfen in la aufgelistet
-list la
-list la
-SQL-Liste von Flügen von New York nach la
-SQL-Liste von Flügen von la guardia nach burbank
-SQL-Liste von Flügen von la nach orlando
-SQL-Liste von Flügen von Ontario california nach orlando
-SQL-Liste von Flügen von Ontario california nach orlando
-SQL-Liste von Flügen von indianapolis nach memphis mit Tarifen am Monday
-SQL-Liste Flüge von indianapolis nach memphis am Monday
-SQL-Liste von Flügen von memphis nach miami am Mittwoch
-SQL-Liste Flüge von miami nach indianapolis am Sonntag
-SQL-Liste von Flügen von charlotte am Samstagnachmittag
-SQL-Liste Typ von Flugzeugen für alle Flüge von charlotte
-SQL q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q q
-SQL aufgelistet Flüge von orlando nach tacoma am Samstag des Tarifs Basis Code von q
-SQL-Liste der Flugpreise für eine Rundreise von detroit nach st. petersburg
-SQL-Liste Bus-Rundreise-Flugpreis von detroit nach st. petersburg
-SQL-Liste von Flügen von pittsburgh nach newark am Monday morning
-SQL-Liste von Flügen von minneapolis nach pittsburgh am Freitag
-SQL-Liste von Flügen vor 9 Uhr von cincinnati bis tampa
-SQL-Liste von Flügen von cincinnati bis tampa vor Mittag
-SQL-Liste von Flügen von tampa nach cincinnati nach 15:00
-SQL-Liste der Fluggesellschaften, die von Meeresgebiet bis Salzseestadt fliegen
-SQL-Liste Delta-Flüge von Seattle bis Salzseestadt
-SQL-Liste Sitzkapazitäten von Delta Flügen von Meeres- bis Salzseestadt
-SQL-Liste Delta-Flüge von Seattle nach Salzseestadt mit Flugzeugtyp
-SQL, welchen Bodentransport gibt es in baltimore
-SQL-Liste Bodentransport in baltimore
-SQL-Liste von Flügen von baltimore nach San francisco am Freitag
-SQL geben Sie mir die Flüge von los angeles nach pittsburgh am Dienstag
-SQL gib mir die Flüge von pittsburgh nach los angeles thursday evening
-SQL geben Sie mir die Rundreise Flüge von cleveland nach miami nächsten Mittwoch
-SQL geben Sie mir die Preise für Rundreise Flüge von cleveland nach miami nächsten Mittwoch
-SQL geben Sie mir die Flüge und Preise für eine Reise nach cleveland von miami am Mittwoch
-SQL geben Sie mir die Preise von miami nach cleveland nächsten Sonntag
-SQL geben Sie mir die Flüge von milwaukee nach phoenix am Samstag oder Sonntag auf amerikanischen Fluggesellschaften
-SQL geben Sie mir die Flüge von phoenix nach milwaukee am Mittwoch Abend
-SQL geben Sie mir die Flüge von phoenix nach milwaukee am Mittwoch auf amerikanischen Fluggesellschaften
-SQL geben Sie mir die Flüge von phoenix nach milwaukee auf amerikanischen Fluggesellschaften
-SQL geben Sie mir die Flüge von phoenix nach milwaukee
-SQL geben Sie mir die Mahlzeiten Flüge ab samstags morgens von Chicago nach seattle nonstop
-SQL geben Sie mir die Flüge von Chicago nach Seattle Samstag Morgen, die Mahlzeiten haben
-SQL geben Sie mir Flüge von Meeresland zu Chicago, die Mahlzeiten auf kontinental
-SQL geben Sie mir die Flüge von Meeresland nach Chicago, die Mahlzeiten auf kontinentalen Samstag morgen haben.
-SQL geben Sie mir die Flüge von Chicago nach Meeresttle auf kontinental, die Mahlzeiten frühen Samstag morgens haben.
-SQL geben Sie mir eine Kombination von kontinentalen Flügen von Chicago bis Meeresttle, die Mahlzeiten frühen Samstag Morgen haben.
-SQL geben Sie mir die samstags morgens Flüge mit Mahlzeiten von Chicago nach minneapolis
-SQL geben Sie mir die saturday morning Flüge auf kontinentalen, die Mahlzeiten von Chicago nach minneapolis haben
-SQL geben Sie mir die saturday morning Flüge von Chicago bis st. paul auf kontinental, die Mahlzeiten haben
-SQL geben Sie mir die Flüge von New York nach las vegas nonstop
-SQL geben Sie mir die Flüge von memphis nach las vegas nonstop
-i need a friday flight from newark to tampa
-i need a sunday flight from tampa to charlotte
-SQL gib mir am Dienstag morgen einen Flug von charlotte nach baltimore.
-i have a morning flight from baltimore to newark please
-SQL-Flugnummer von dallas nach houston
-SQL-Flugnummer von houston nach dallas
-SQL saturday flight on american airlines from milwaukee to phoenix
-SQL-Flugnummern auf amerikanischen Fluggesellschaften von phoenix bis milwaukee
-SQL-Flugnummern von Chicago bis zum Meeresgebiet
-SQL-Flugnummern von Chicago bis zum Meeresgebiet auf kontinentalen
-SQL-Flugnummern von Seattle nach Chicago auf kontinentalen
-SQL ist es ein Preis von pittsburgh bis cleveland unter 200 Dollar
-SQL wie viel ist der Busflieger von pittsburgh nach atlanta
-SQL-Newark zu tampa am Freitag
-SQL tampa to charlotte sunday morning
-SQL charlotte zu baltimore am Dienstag
-SQL baltimore bis neuark am kommenden Dienstag
-SQL dallas nach 1201am nach houston
-SQL houston nach dallas vor Mitternacht
-SQL indianapolis bis orlando im Dezember 27
-SQL cleveland nach miami am Mittwoch angekommen vor 16 Uhr
-SQL miami to cleveland sunday afternoon
-SQL New york city to las vegas and memphis to las vegas on sunday
-SQL New york city to las vegas and memphis to las vegas on sunday
-SQL New york to las vegas sunday afternoon
-SQL-Memphis nach las vegas Sonntag Nachmittag
-SQL - New York nach las vegas am Sonntag Nachmittag
-saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxophon saxo
-samstags morgens sassato sas vegas
-SQL-Standard zu los angeles thursday evening
-SQL-Milwaukee zu phoenix am Samstag
-SQL phoenix to milwaukee on sunday
-SQL phoenix zu milwaukee am Mittwoch
-SQL-Flug von baltimore nach San francisco ankommen zwischen 17 und 20 Uhr
-Wie viele Flüge in Nordwesten verlassen st. paul
-Wie viele Flüge in Nordwesten von Washington dc verlassen
-Wie viele Flüge Nordwesten haben trübes
-SQL, was Städte aus Nordwesten fliegen
-auf die Städte, aus denen der Nordwestflieger fliegt
-SQL, wo die Städte Nordwest fliegen
-i would like a connecting flight from dallas to san francisco leaving after 4 o'clock
-SQL bitte alle Flüge von dallas nach San francisco auflisten
-SQL erzählen Sie mir noch einmal die Morgenflüge auf amerikanischen Fluggesellschaften von Philadelphia nach dallas
-SQL sagen Sie mir die Flüge, die philadelphien verlassen und gehen nach dallas
-SQL was ist ein d9s
-SQL, welche Art von Flugzeug ist ein d9s
-SQL was ist ein d9s
-SQL zeigen Sie mir die Flughäfen, die mit Turmluft serviert werden
-SQL zeigen Sie mir die erste Klasse und Busflüge zwischen jfk und orlando
-SQL zeigen Sie mir die ersten Klasse und Busflüge von kennedy Flughafen nach miami
-SQL zeigen Sie mir die erste Klasse und Busflüge von jfk nach miami
-SQL sind jemals Mahlzeiten in Turmluft serviert
-SQL sind Snacks serviert in Turmluft
-SQL zeigen delta airlines Flüge von jfk nach miami
-SQL-SQL-Flugzeuge von boston zum Salzsee anzeigen
-SQL-SQL-Flüge von Delta Airlines von Boston zum Salzsee anzeigen
-SQL zeigen delta airlines Flüge von boston bis Salzseestadt
-Warum sind die Preise für Flüge zwischen boston und washington dc?
-- ich habe es nicht geschafft, es war ziemlich teuer, es war nicht genügend teuer, es war nicht genügend teuer, es war nicht genügend teuer, es war nicht genügend teuer, es war nicht genügend teuer, es war nicht teuer, es war nicht teuer, es war nicht teuer, es war nicht teuer,
-Warum sind die niedrigsten Preise von washington dc bis Salzseestadt?
-SQL, was ist der niedrigste Tarif von bwi zu Salzseestadt
-SQL zeigen Sie mir die Kosten für ein erste Klasse-Ticket von detroit nach las vegas und zurück
-SQL, was ist der früheste angekommene Flug von boston nach washington dc
-SQL, was ist der früheste angekommene Flug zwischen boston und washington dc
-SQL, was ist der früheste angekommene Flug zwischen boston und washington dc
-SQL, was ist der früheste angekommene Flug von houston nach orlando
-SQL, was ist der früheste angekommene Flug von houston nach orlando
-SQL zeigen Sie mir die Flüge zwischen houston und orlando
-SQL zeigen Sie mir die Flüge zwischen houston und orlando
-SQL zeigen Sie mir die Flüge von houston nach orlando
-SQL-Liste aller Flüge, die denver zwischen 8 und 21 Uhr verlassen.
-SQL - wie ist die Sitzkapazität des Flugzeugs 733
-SQL, welche Sitzkapazität eine 72s
-welcher Sitzkapazität des Flugzeuges 72s
-m80 - welcher Sitzkapazität des Flugzeugs?
-m80 - welcher Sitzkapazität der Typ des Flugzeuges ist
-m80 - welcher Sitzkapazität ist
-SQL, was Fluggesellschaften denver dienen
-SQL-Liste der Fluggesellschaften mit Flügen nach oder aus denver
-SQL, was Fluggesellschaften in denver fliegen
-SQL-Liste aller Flüge, die zwischen 8 und 21 Uhr in denver ankommen
-welcher Kapazitätsumfang der 73 ist
-SQL 73s
-SQL, welche Sitzkapazität auf dem Flugzeug 73
-SQL - wie ist die Sitzkapazität eines 757
-wie viele Leute werden eine 757 halten
-SQL, wie viele Passagiere auf einem 757 fliegen können
-SQL-Liste aller täglichen Flüge, die zwischen 8 und 21 Uhr in denver ankommen.
-SQL-Liste aller täglichen Flüge, die von 8 bis 21 Uhr in denver ankommen.
-SQL zeigen Sie mir alle täglichen Flüge, die in denver zwischen 20 und 21 Uhr ankommen.
-SQL - welche Sitzkapazität der 757
-m80 - ich sage mir über das m80-Flugzeug
-m80 - ich sage mir über das m80-Flugzeug
-SQL erzählen Sie mir über die Art von Flugzeugen namens m80
-SQL - welche Sitzkapazität der 733
-m80 - welcher Sitzkapazität ist
-m80 - welcher Sitzkapazität auf dem Flugzeug m80
-SQL-Liste aller Flüge, die zwischen 8 und 21 Uhr ankommen oder aus den Verkehr ziehen
-SQL-Liste aller Flüge, die zwischen 8 und 21 Uhr in denver ankommen
-SQL-Liste aller Flüge auf allen Flugzeugtypen, die zwischen 20 und 21 Uhr in den Verkehr ankommen.
-SQL bitte alle Flüge von nashville nach memphis am Montag morgen auflisten
-SQL bitte die Flüge von nashville nach memphis am Montag morgen auflisten
-Leider war es nicht so gut, dass man es beim Frühstücksbuffet bekam.
-SQL bitte die Flüge von memphis nach New York an einer Monday Nacht auflisten
-SQL ist cvg
-SQL, welchen Bodentransport vom Flughafen La guardia in die neue York City verfügbar ist
-SQL gibt es Bodentransporte von lga in New York City
-SQL bitte den Bodentransport von lga in New York auflisten
-SQL bitte den Bodentransport von ewr in die neue York City auflisten
-SQL zeigen Sie mir die Morgenflüge von memphis nach New York City
-SQL geben Sie mir die Flüge von New York City nach nashville verlassen nach 17 Uhr am Mittwoch
-SQL erzählen Sie mir über den Bodentransport vom Flughafen nashville
-SQL, welche Nonstop-Flüge von cincinnati nach charlotte abfahren nach Mittag und ankommen vor 19 Uhr
-Wie viele Flüge müssen alaska Airlines burbank buchen
-SQL-Liste der alaska Airlines Flüge von Burbank in irgendeinem Ort auf
-SQL-Liste der alaska Airlines Flüge von Burbank
-welcher Fluggesellschaft als
-SQL-Liste der Flugverbindungen der alaska airlines in Burbank
-SQL-Liste der Flüge der alaska airlines, die von Burbank abfahren
-SQL Liste aller Flüge von alaska Airlines
--Liste aller Flüge, die von Seattle abfahren
-SQL-Liste der Flüge von indianapolis nach memphis, die vor Mittag verlassen
-SQL - Liste des billigsten Tarifs von charlotte nach las vegas
-i want a flight from los angeles to charlotte early in the morning
-i would like a morning flight from charlotte to newark
-i'd like a morning flight from newark to los angeles
-i'd like a evening flight from newark to los angeles
-i would like a flight that leaves on sunday from montreal quebec to san diego california
-i would like a flight on tuesday which leaves from san diego to indianapolis indiana and that leaves in the afternoon
-i would like to leave thursday morning from indianapolis to toronto
-i would like a flight on friday morning from toronto to montreal
-i would like a flight from cincinnati to burbank on american
-SQL, welches Flugzeugtyp für den amerikanischen Flug verwendet wird, der um 1619 Uhr abfährt
-i need a flight leaving kansas city to chicago leaving next wednesday and returning the following day
-SQL, welche Flüge von langen Strand bis st. louis gehen
-SQL, welche Flüge von memphis nach las vegas
-SQL, welche Flüge von Las vegas nach Ontario
-SQL, welche Flüge von Ontario nach Memphis
-SQL, welche Art von Bodentransport gibt es am Flughafen von Las vegas
-hat es einen Taxiservice am Flughafen auf dem Inseln.
-SQL, welche Flüge von tampa nach milwaukee
-SQL, welche Flüge von milwaukee nach seattle
-SQL, was sind die Flüge von la guardia nach san jose auf vereint
-SQL, was sind die Flüge von Mondays, die von charlotte nord carolina nach phoenix arizona reisen
-SQL, was sind die Flüge von phoenix arizona bis st. paul minnesota am Dienstag
-SQL, was sind die Flüge am thursday verlassen von st. paul minnesota nach st. louis
-SQL, welche Flüge von St. louis nach charlotte nord-karolina abfahren am Freitag
-SQL, welche Flüge von Boston nach rlando, die in New York stoppen
-i have a problem with the swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss swiss
-SQL wie es mit einem Flug von milwaukee nach St. louis, der Monday night verlassen
-SQL und eine Flucht von St. louis nach Burbank, die am Dienstagnachmittag abfährt
-SQL wie wäre es mit einem Flug, der Dienstagabend von St. louis nach Burbank verlässt?
-i have a problem with the sandbox and the sandbox.
-SQL i'd like a flight from cincinnati to newark airport that arrives on saturday before 18pm
-i need a flight on american airlines from miami to chicago that arrives around 17pm
-i need a flight from memphis to tacoma that goes through los angeles
-SQL, welche Flüge zwischen cincinnati und san jose california, die nach 18 Uhr verlassen
-SQL, welche Nonstop-Flüge zwischen san jose und houston texas
-SQL, welche Nonstop-Flüge zwischen houston und memphis
-SQL, was sind die Flüge zwischen memphis und cincinnati am Mittwoch
-SQL, welche amerikanischen Flüge von Newark nach nashville
-SQL-Flüge von Ontario nach Westchester, die in chicago stoppen
-SQL bitte die Flüge von los angeles nach charlotte auflisten
-SQL bitte die Flüge von charlotte nach Newark auflisten
-SQL bitte die Flüge von Newark nach los angeles auflisten
-SQL bitte die Flüge von cincinnati bis burbank auf amerikanischen Fluggesellschaften auflisten
-SQL bitte geben Sie mir die Flüge von kansas Stadt nach chicago am 16. Juni
-SQL bitte geben Sie mir die Flüge von Chicago nach Kansas Stadt am 17. Juni
-SQL bitte alle Flüge von Kansas Stadt nach Chicago am 16. Juni auflisten
-SQL bitte alle Flüge von Chicago nach Kansas Stadt am 17. Juni auflisten
-SQL - ich möchte von Burbank nach milwaukee reisen
-SQL kannt ihr mich wieder ein Flug von cincinnati nach New York am Samstag vor 18 Uhr finden?
-SQL können Sie alle Delta-Flüge von Salt Lake City nach New York am nächsten Samstag ankommen vor 18 Uhr auflisten
-i'd like to fly from miami to chicago on american airlines arriving around 17pm
-SQL - ich möchte am nächsten Mittwoch von kansas Stadt nach chicago reisen
-SQL i'd like a round trip flight from kansas city to chicago on wednesday may twenty sixth arriving at 19pm
-i'd like to find a flight from memphis to tacoma stopping in los angeles
-SQL-Flug von San diego nach phoenix am Monday finden
-SQL-Flug von phoenix nach detroit am Monday finden
-SQL-Flug von detroit nach san diego am Dienstag finden
-SQL-Flug von cincinnati nach san jose am Monday
-SQL-Flug von san jose nach houston am Mittwoch finden
-SQL-Flug von houston nach memphis am Freitag
-SQL-Flug von memphis nach cincinnati am Sonntag finden
-SQL finden u.a. Flug von Newark nach nashville um 630 Uhr
-Gibt es Flüge am zehnten Juni von Burbank nach Tacoma
-SQL-Dateien buchen möchten, um einen Flug von Burbank nach milwaukee zu buchen
-SQL zeigen Sie mir alle Flüge von Burbank nach milwaukee
-SQL finden Sie mir alle Flüge von milwaukee nach st. louis
-SQL jetzt zeigen Sie mir alle Flüge von St. louis nach Burbank
-SQL ist eine Fluggesellschaft, die von Burbank zu milwaukee milwaukee zu st. louis und von st. louis zu burbank fliegt?
-SQL finden Sie mir alle Rundfahrt Flüge von Burbank nach milwaukee Haltestelle in st. louis
-i'd like to book two flights to westchester county
-i want to book a flight from salt lake city to westchester county
-SQL sagen Sie mir alle Flughäfen in der Nähe des westchester County
-SQL - ich möchte einen Flug von cincinnati nach New York auf united airlines für den nächsten Samstag buchen.
-SQL sage mir alle Flughäfen in der neuen York City Area
-SQL - sämtliche Flüge von cincinnati bis zu jedem Flughafen in der neuen York City, die am nächsten Samstag vor 18 Uhr ankommen, finden Sie hier.
-SQL finden Sie einen Flug von cincinnati zu jedem Flughafen in der neuen York City Area
-SQL - ich möchte von miami nach chicago auf amerikanischen Fluggesellschaften fliegen.
-i would like to book a round trip flight from kansas city to chicago
-SQL finden Sie einen Flug, der von memphis nach tacoma fliegt
+ Translat e text to SQL : what flights go from da ll a s to  pho en ix 
+ Translat e text text to SQL : what flights go from  pho en ix to salt lake city 
+  i need an early flight from mil w au ke e to den ver     
+ Translat e text to SQL : what types of ground transportation are available in den ver    
+  .                  
+                    
+  to mil w au ke e on we d nes day afternoon .      
+ Translat e text text to SQL : flights from wash ington to sea ttle      
+ Translat e text text to SQL : flights from at lant a to sea ttle     
+ Translat e text to SQL : flights from  s an die go to sea ttle    
+                    
+  city to  pho en ix ?            
+  sburg h to  pho en ix ?           
+                    
+  .                  
+  to montre al .               
+  to ront o .                                   
+  to wash ington on  a  s atur day .                            
+  a s .  the text to SQL :  i need  a flight from  c level and to da ll a s that leaves before noon see  if too much information is available . 
+ Translat e text text to SQL : get  fares from wash ington to bo ston                        
+  to bo ston .                                   
+ Translat e text text to SQL : get  fares from wash ington to montre al                        
+  to montre al .                                   
+  .                                      
+  .                                      
+                                        
+                                        
+ Translat e text to SQL : get flights from mil w au ke e to  d t w                     
+ Translat e text to SQL : list flights from mil w au ke e to  d etro it                     
+  it to to ront o                                  
+ Translat e text to SQL : get flights from to ront o to mil w au ke e                      
+ Translat e text to SQL : get first flight from oak l and to salt lake city on  th urs day                  
+ Translat e text to SQL : get last flight from oak l and to salt lake city on we d nes day     
+ Translat e text to SQL : list last we d nes day flight from oak l and to salt lake city      
+ Translat e text to SQL : get flight from to ront o to  s an die go stopping at  d t w   
+                           
+  to in dian a polis .                    
+   i need  a flight depart ing from mil w au ke e to in dian a polis leaving mon day before 8 am 
+                           
+  from in dian a polis to  c level and depart ing  t u e s day at noon      
+  from  c level and to mil w au ke e we d nes day after 6 pm        
+   c level and returning to mil w au ke e we d nes day after 17 pm        
+  from  c level and to mil w au ke e on we d nes day after 17 pm       
+  from  c level and to mil w au ke e on we d nes day after 17 pm       
+  to salt lake city on mon day .                  
+  ?                         
+  from den ver to salt lake city on mon day depart ing after 17 pm           
+  ?                         
+  to  pho en ix , depart ing we d nes day after 17 pm                                               
+                                                               
+  to salt lake city on we d nes day depart ing after 18 pm                                                
+  i need flight and far e information for  th urs day depart ing prior to 9 am from oak l and going to salt lake city                                   
+   th urs day before 8 am .                                                      
+  from oak l and to salt lake city on  th urs day depart ing before 8 am                                            
+  from oak l and going to salt lake city .                                                    
+  .                                                             
+                                                               
+ Translat e text text to SQL : list the  ari zon a airport                                                 
+                                                               
+ Translat e text to SQL : list flights from la s  ve gas to  pho en ix .                                           
+                                                               
+ Translat e text text to SQL : list airport s                                                     
+  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+                                                               
+ Translat e text to SQL : which airlines fly between to ront o and  s an die go                                                                                               
+                                                                                                                  
+ Translat e text text to SQL : what is  t p a                                                                                                     
+                                                                                                                  
+  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+ Translat e text to SQL : What type of aircraft are flying from  c level and to da ll a s before noon ?                                                                                         
+ Translat e text to SQL :  i need information on flights from in dian a polis to sea ttle                                                                                              
+   a flight from me mph is to sea ttle .                                                                                                      
+   n ash ville to sea ttle .                                                                                                         
+   ten ness e e to sea ttle .                                                                                                        
+  i need flight information from mil w au ke e to  t amp a                                                                                                  
+  . com .                                                                                                              
+  is to mil w au ke e .                                                                                                         
+  i need flights depart ing from oak l and and arriving salt lake city                                                                                                   
+                                                                                                                  
+                                                                                                                  
+  to  s an die go .                
+                        
+  .                      
+ Translat e text text to SQL : which flights go from new york to mi ami and back      
+ Translat e text text to SQL :                 
+ Translat e text text to SQL : show me flights from mil w au ke e to  o rland o one way 
+ Translat e text text to SQL : what the ab bre vi ation us stand for        
+ Translat e text text to SQL : show me flights from mil w au ke e to  o rland o   
+ Translat e text text to SQL : what does far e code  f mean         
+ Translat e text text to SQL : what does far e code  h mean         
+ Translat e text text to SQL : what does far e code  y mean         
+ Translat e text text to SQL : what are restrictions  a p / 57         
+                        
+                        
+  to montre al please .                  
+ Translat e text text to SQL : what airline is  d l           
+ Translat e text to SQL : show me all delta airlines flights from montre al to  o rland o           
+ Translat e text to SQL : show me all flights from  o rland o to montre al please            
+ Translat e text text to SQL : which airline is  k w                  
+ Translat e text text to SQL : please list all flights from new york to mi ami any any type of class         
+ Translat e text text to SQL : what does far e code  b h mean               
+  to  j f k please                        
+ Translat e text text to SQL : what does far e code  b h mean               
+ Translat e text text to SQL : what does far e code  b h mean               
+ Translat e text text to SQL : what does far e code  b h mean               
+ Translat e text text to SQL : what does far e code  b h mean               
+ Translat e text to SQL : show me one way flights from mil w au ke e to  o rland o after 6 pm on we d nes day 
+ Translat e text to SQL : show me the flights from in dian a polis to me mph is            
+ Translat e text text to SQL : show me round trip flights from bur bank to sea ttle             
+ Translat e text to SQL : show me round trip flights from  o rland o to montre al            
+ Translat e text text to SQL : show me non stop flights from montre al to  o rland o           
+ Translat e text text to SQL : show me round trips between montre al and  o rland o            
+ Translat e text text to SQL : show me round trip flights from montre al to  o rland o                                                                                              
+  to  o rland o .                                                                                                           
+   o rland o to montre al flights from  o rland o to montre al                                                                                                 
+ Translat e text to SQL :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s 
+ Translat e text to SQL :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s  ve gas economy :  kan s a s city to la s 
+ Translat e text text to SQL : what airline is  h p                                                                                                     
+ Translat e text to SQL : ground transportation in la s  ve gas in la s  ve gas .                                                                                             
+ Translat e text to SQL : ground transportation for la s  ve gas                                                                                                    
+ Translat e text to SQL : la s  ve gas to bal t i more economy                                                                                                 
+ Translat e text to SQL : la s  ve gas to bal t i more economy                                                                                                 
+ Translat e text to SQL : bal t i more to  kan s a s city economy                                                                                                
+ Translat e text text to SQL : what airline is us                                                                                                       
+ Translat e text text to SQL : which airline is us                                                                                                       
+ Translat e text text to SQL : which airline is us                                                                                                       
+ Translat e text text to SQL : which airline is us                                                                                                       
+ Translat e text text to SQL : which airline is us                                                                                                       
+ Translat e text to SQL : co lum bus to chic a go one way before 10 am         
+ Translat e text text to SQL : what airline is  h p              
+ Translat e text to SQL :  s t pe ter sburg to  d etro it          
+   a SQL translation : from mil w au ke e to  o rland o one way after 17 pm we d nes day 
+                           
+ Translat e text text to SQL : what airline airline is  y x             
+                           
+                           
+ Translat e text text to SQL : what airline is  h p              
+ Translat e text to SQL : show me ground transportation in  pho en ix            
+ Translat e text to SQL : show me flights from  pho en ix to for t worth         
+ Translat e text to SQL : show me ground transportation in for t worth             
+ Translat e text to SQL : show me flights from for t worth to  s an jos e        
+ Translat e text text to SQL : show me first class flights from new york to mi ami round trip       
+ Translat e text text to SQL : show me first class flights from new york to mi ami round trip       
+ Translat e text to SQL : show me all round trip flights from new york to mi ami non stop       
+ Translat e text to SQL : show me all round trip flights from mi ami to new york non stop                       
+ Translat e text to SQL : show me one way flights from in dian a polis to me mph is before 10 am on any day                 
+ Translat e text text to SQL : what does far e code  f mean                            
+ Translat e text text to SQL : show me round trip flights from bur bank to  t a com a                      
+ Translat e text text to SQL : what does the restriction  a p 58 mean ?                          
+ Translat e text text to SQL : what does far e code  h mean                            
+ Translat e text text to SQL : what airline is as                                
+ Translat e text text to SQL : what airline is as                                
+ Translat e text text to SQL : what airline is as                                
+   s as in  s am  s am  s as in  s am  s as in  s am  s as in  s am  s as in  s am  s . 
+                                           
+                                           
+                                           
+                                           
+ Translat e text text to SQL : what airline is  h p                              
+ Translat e text to SQL : list flights from chic a go to  s an die go                         
+ Translat e text to SQL : list flights from chic a go to  s an die go                   
+  .                                   
+ Translat e text to SQL : list flights from den ver to  pho en ix                     
+  to la s  ve gas .  to la s  ve gas .                     
+ Translat e text to SQL : list flights from la s  ve gas to  s an die go : list flights from la s  ve gas to  s an die go . 
+  .                                   
+                                     
+ Translat e text text to SQL : list flights from  hou ston to mil w au ke e                  
+                                     
+  to da ll a s on fri day .                           
+  .                                   
+  york .                                  
+                                     
+                                     
+                                     
+ Translat e text text to SQL : list airport s                           
+                        
+                        
+                        
+ Text text to SQL : list la                 
+ Text text to SQL : list la                 
+ Translat e text text to SQL : list flights from new york to la          
+ Translat e text to SQL : list flights from la guard i a to bur bank        
+ Translat e text text to SQL : list flights from la to  o rland o        
+ Translat e text to SQL : list flights from on tari o  cali for n i a to  o rland o 
+ Translat e text to SQL : list flights from on tari o  cali for n i a to  o rland o 
+                        
+                        
+ Translat e text text to SQL : list flights from me mph is to mi ami on we d nes day   
+ Translat e text to SQL : list flights from mi ami to in dian a polis on sun day     
+                        
+ Tra version text to SQL : list type of aircraft for all flights from  char lotte       
+ Translat e text to SQL : what class is far e code  q            
+   o rland o to  t a com a on  s atur day of far e basis code of  q . 
+  it to  s t . pe ter sburg .               
+  it to  s t . pe ter sburg .               
+                          
+                          
+ Translat e text text to SQL : list flights before 9 am from cinci n nati to  t amp a     
+ Translat e text text to SQL : list flights from cinci n nati to  t amp a before noon      
+  to cinci n nati after 15 pm                  
+ Translat e text to SQL : list airlines that fly from sea ttle to salt lake city         
+ Translat e text text to SQL : list delta flights from sea ttle to salt lake city         
+ Translat e text text to SQL : list seating capacities of delta flights from sea ttle to salt lake city      
+ Translat e text text to SQL : list delta flights from sea ttle to salt lake city with aircraft type      
+  ?                        
+ Translat e text text to SQL : list ground transportation in bal t i more           
+                          
+  !                       
+                         
+                         
+                         
+  from mi ami to  c level and .               
+                         
+                         
+                         
+ Translat e text to SQL : give me the flights from  pho en ix to mil w au ke e on american airlines 
+ Translat e text to SQL : give me the flights from  pho en ix to mil w au ke e on american airlines 
+ Translat e text to SQL : give me the flights from  pho en ix to mil w au ke e    
+                         
+                         
+ Translat e text to SQL : give me flights from sea ttle to chic a go that have meals on continental    
+                         
+                         
+  to sea ttle that have meals early  s atur day morning .          
+                        
+  the flights on continental that have meals from chic a go to  m inne a polis .     
+  to  s t . pa ul on continental that have meals .          
+ Translat e text to SQL : give me the flights from new york to la s  ve gas non stop .  
+ Translat e text to SQL : give me the flights from me mph is to la s  ve gas non stop . 
+   t amp a .                  
+   t amp a to  char lotte .              
+  to bal t i more .                 
+   a morning flight from bal t i more to new ark please          
+ Translat e text to SQL : flight number from da ll a s to  hou ston .      
+                        
+                        
+ Translat e text text to SQL :                 
+ Translat e text text to SQL : flight numbers from chic a go to sea ttle        
+ Translat e text text to SQL : flight numbers from chic a go to sea ttle on continental      
+ Translat e text text to SQL : flight numbers from sea ttle to chic a go on continental              
+  sburg h to  c level and under 200 dollars                     
+ Translat e text text to SQL : how much is coach flight from pit t sburg h to at lant a           
+ Translat e text text to SQL : new ark to  t amp a on fri day               
+ Translat e text to SQL :  t amp a to  char lotte sun day morning               
+                                
+ Translat e text to SQL : bal t i more to new ark we d nes day morning              
+  .                              
+  .                              
+ Translat e text to SQL : in dian a polis to  o rland o de c ember twenty seventh            
+ Translat e text to SQL :  c level and to mi ami on we d nes day arriving before 16 pm          
+ Translat e text to SQL : mi ami to  c level and sun day afternoon                
+  . Translat e text to SQL : new york city to la s  ve gas and me mph is to la s  ve gas on sun day . 
+  . Translat e text to SQL : new york city to la s  ve gas and me mph is to la s  ve gas on sun day . 
+  .                              
+  .                              
+  .                                                                                                                
+                                                                                                                  
+   s atur day morning .                                                                                                           
+                                                                                                                  
+                                                                                                                  
+ Translat e text text to SQL :  pho en ix to mil w au ke e on sun day                                                                                              
+ Translat e text to SQL :  pho en ix to mil w au ke e on we d nes day                                                                                             
+  to  s an fr anci sco arriving between 5 and 8 pm                                                                                                    
+                                                                                                                  
+ Translat e text text to SQL : how many northwest flights leave wash ington  d c                                                                                                 
+  the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and s of the  s and 
+ Translat e text text to SQL : what cities does northwest fly out of                                                                                                    
+ Translat e text text to SQL : list the cities from which northwest  f lies                                                                                                  
+ Translat e text text to SQL : what cities does northwest fly to                                                                                                     
+  to  s an fr anci sco . Translat e text to SQL :  i would like  a connecting flight from da ll a s to  s an fr anci sco leaving after 4  o ' clock leaving after 4  o ' clock .                                                                
+ Über setzen Text in SQL : Bitte  er wä hnen Sie ,  o b Sie alle Flü ge von da ll a s nach  s an fr anci sco  buch en .                                                                              
+                          
+                          
+  SQL : what is  a  d 9 s               
+   d 9 s .                    
+  SQL : what is  a  d 9 s               
+                          
+ Translat e text text to SQL : show me the first class and coach flights between  j f k and  o rland o 
+ Translat e text text to SQL : show me the first class and coach flights from  kenn e d y airport to mi ami 
+ Translat e text text to SQL : show me the first class and coach flights from  j f k to mi ami   
+ Translat e text text to SQL : are meals ever served on tower air            
+ Translat e text to SQL : are snacks served on tower air              
+ Translat e text text to SQL : show delta airlines flights from  j f k to mi ami       
+ Translat e text text to SQL : show delta airlines from bo ston to salt lake          
+ Translat e text to SQL : show delta airlines flights from bo ston to salt lake          
+ Translat e text text to SQL : show delta airlines flights from bo ston to salt lake city        
+                          
+ Translat e text text to SQL : what is the least expensive far e from bo ston to salt lake city                                
+                                                     
+ Translat e text text to SQL : what is the lowest far e from  b w i to salt lake city                               
+  and back to the  ve gas . Translat e text to SQL : show me the cost of  a first class ticket from  d etro it to la s  ve gas and back to la s  ve gas and back to  d etro it . 
+  to wash ington  d c .                                             
+   d c .                                                
+  .  .  .  .   d c .   d c .  text to SQL : what ' s the first arriving flight between bo ston and wash ington  d c .             
+  to  o rland o .                                              
+  to  o rland o .                                              
+ Translat e text to SQL : show me the flights between  hou ston and  o rland o                                  
+ Translat e text to SQL : show me the flights between  hou ston and  o rland o                                  
+ Translat e text to SQL : show me the flights from  hou ston to  o rland o                                  
+ Über p                                                   
+ Translat e text to SQL : what is the seating capacity on the aircraft 7 33                                     
+   a 72 s ?                                               
+ Über setzen Text Text to SQL : What is the seating capacity of the aircraft 72 s                                    
+ Translat e text to SQL : what is the seating capacity of the aircraft  m 80       
+ Translat e text to SQL : what is the seating capacity of the type of aircraft  m 80     
+ Translat e text to SQL : what is the seating capacity of an  m 80        
+ Translat e text text to SQL : what airlines serve den ver            
+ Translat e text text to SQL : list the airlines with flights to or from den ver       
+ Translat e text text to SQL : what airlines fly into den ver           
+ Über p                      
+                        
+ Translat e text to SQL : what is  73 s             
+ Über p                      
+   a 7 57                   
+ Translat e text to SQL SQL : how many people will  a 7 57 hold        
+   a 7 57                   
+ Über p                      
+                        
+ Über setzen text to SQL : show me all of the daily flights arriving in den ver between 8 pm and 9 pm 
+ Translat e text to SQL : what is the seating capacity of the 7 57          
+ Translat e text text to SQL : tell me about the  m 80 aircraft          
+ Translat e text text to SQL : tell me about the  m 80 aircraft          
+  SQL : tell me about  a type of aircraft called an  m 80         
+ Translat e text text to SQL : what is the seating capacity of the 7 33         
+ Translat e text text to SQL : what is the seating capacity of the  m 80        
+ Translat e text to SQL : what is the seating capacity on the aircraft  m 80        
+ Über p                       
+ Über p                       
+ Über p                       
+ Über setzen Text Text in SQL : Please list all flights from  n ash ville to me mph is on mon day morning 
+                         
+  is airport into town when  i arrive at 8 42 in the morning ?         
+  to new york city on  a mon day night .             
+ Translat e text text to SQL : what is  c v g            
+ Translat e text to SQL : what ground transportation is available from la guard i a airport into new york city    
+  -                   
+ Translat e text to SQL : please list the ground transportation from  l g a into new york city 
+ Translat e text to SQL : please list ground transportation from  e w r into new york city  
+ Translat e text text to SQL : show me the morning flights from me mph is to new york  
+                     
+ Translat e text text to SQL : tell me about the ground transportation from  n ash ville airport  
+                     
+ Translat e text text to SQL : how many flights does al a ska airlines have to bur bank  
+ Translat e text text to SQL : list the al a ska airline flights from bur bank to anywhere  
+ Translat e text text to SQL : list the al a ska airline flights from bur bank    
+ Translat e text text to SQL : which airline is as          
+ Translat e text to SQL : list the al a ska airlines flights arriving in bur bank    
+ Translat e text to SQL : list the al a ska airlines flights depart ing from bur bank   
+ Translat e text text to SQL : list all al a ska airlines flights       
+ Translat e text text to SQL : list all flights depart ing from sea ttle      
+                     
+   ve gas .                                                                                                             
+  . I want to fly from los angel e s to  char lotte early in the morning .                                                                                              
+   a morning flight from  char lotte to new ark                                                                                                      
+  . Translat e text to SQL :  i ' d like  a morning flight from new ark to los angel e s .                                                                                        
+  . Translat e text to SQL :  i ' d like an evening flight from new ark to los angel e s .                                                                                         
+   cali for n i a .                                                                                                          
+  polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a polis in dian a 
+  to ront o .                                                                                                             
+  to ront o to montre al .                                                                                                          
+  to bur bank on american                                                                                                            
+ Translat e text to SQL : What type of aircraft is used for the american flight leaving at 4 19 pm                                                                                             
+  to chic a go . I need  a flight leaving  kan s a s city to chic a go leaving next we d nes day and returning the following day .                                                                                
+ Translat e text to SQL : what flights go from long beach to  s t . lou is                                                                                               
+  ?                                                                                                                
+  ?                                                                                                                
+ Translat e text text to SQL : what are the flights from on tari o to me mph is                                                                                               
+ Über setzen Sie Text in SQL : Welche n Typ von Boden transport gibt  e s bei der La s  ve gas Airport ?              
+  ?                                      
+ Translat e text to SQL : what are the flights from  t amp a to mil w au ke e                   
+  to sea ttle ?                                   
+                                        
+  to  pho en ix  ari zon a ? What are the flights on mon day s that travel from  char lotte north car olin a to  pho en ix  ari zon a ? 
+   ari zon a to  s t . pa ul min nes o t a ?                      
+  ?                                      
+  ?                                      
+                                        
+   a flight from bur bank to mil w au ke e next mon day .                       
+  to  s t . lou is .                               
+  to bur bank .                                   
+  to bur bank .                                   
+   s atur day before 6 pm .                               
+  to new ark airport that arrives on  s atur day before 6 pm .                        
+  to chic a go that arrives around 5 pm             
+  to  t a com a .               
+                       
+                       
+ Translat e text to SQL : what are the non stop flights between  hou ston and me mph is   
+                       
+ Translat e text text to SQL : what are the american flights from new ark to  n ash ville   
+ Translat e text text to SQL : the flights from on tari o to west chester that stop in chic a go 
+                       
+ Translat e text text to SQL : please list the flights from  char lotte to new ark     
+  e s to los angel e s .              
+ Translat e text text to SQL : please list the flights from cinci n nati to bur bank on american airlines  
+                       
+                       
+                       
+                       
+  .                   
+  to new york on  s atur day before 6 pm ?        
+                     
+  to chic a go on american airlines arriving around 5 pm .        
+  .                   
+  to chic a go on we d nes day may twenty sixth arriving at 7 pm .   
+  to  t a com a stopping in los angel e s .       
+                     
+                     
+  it to  s an die go on  t u e s day .     
+                     
+   hou ston on we d nes day .           
+                     
+ Translat e text text to SQL : find flight from me mph is to cinci n nati on sun day 
+   6:00  p . m .             
+                     
+  to  a  f lier .                                                                                                          
+ Über setzen text text to SQL : show me all the flights from bur bank to mil w au ke e                                                                                             
+                                                                                                                  
+                                                                                                                  
+  is ?  ?                                                                                                             
+  ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is ,  s t . lou is 
+  .                                                                                                                
+   a flight from salt lake city to west chester county .                                                                                                     
+                                                                                                                  
+  to new york city on united airlines for next  s atur day .                                                                                                   
+                                                                                                                  
+  york city .                                                                                                              
+  city area .                                                                                                              
+  to chic a go on american airlines .                                                                                                         
+  to chic a go .                                                                                                            
+                                                                                                                  

@@ -102,6 +102,7 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         "checkpoints", f"{model_type}_experiments", args.experiment_name
     )
     gt_sql_path = os.path.join(f"data/dev.sql")
+
     gt_record_path = os.path.join(f"records/ground_truth_dev.pkl")
     model_sql_path = os.path.join(f"results/t5_{model_type}_{experiment_name}_dev.sql")
     model_record_path = os.path.join(
@@ -192,7 +193,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-        train_loader
+            train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -202,8 +203,8 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
         output = model(
             input_ids=encoder_input,
-            attention_mask=encoder_mask,
-            decoder_input_ids=decoder_input,
+            # attention_mask=encoder_mask,
+            # decoder_input_ids=decoder_input,
             labels=decoder_targets,
         )
 
@@ -226,14 +227,14 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-    args,
-    epoch_number,
-    model,
-    dev_loader,
-    gt_sql_pth,
-    model_sql_path,
-    gt_record_path,
-    model_record_path,
+        args,
+        epoch_number,
+        model,
+        dev_loader,
+        gt_sql_pth,
+        model_sql_path,
+        gt_record_path,
+        model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track
@@ -268,8 +269,8 @@ def eval_epoch(
             model = model.to(DEVICE)
             output = model(
                 input_ids=input_ids,
-                attention_mask=encoder_mask,
-                decoder_input_ids=decoder_inputs,
+                # attention_mask=encoder_mask,
+                # decoder_input_ids=decoder_inputs,
                 labels=labels,
             )
 
@@ -289,13 +290,13 @@ def eval_epoch(
                 input_ids, attention_mask=encoder_mask, max_length=512
             )
             generated_sql = [
-                " ".join(tokenizer.batch_decode(g, skip_special_tokens=True))
-                for g in predicted_sql
+                tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
             ]
             with open(
-                f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
+                    f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
             ) as f:
                 for sql_command in generated_sql:
+                    print(sql_command)
                     f.write(sql_command + "\n")
 
             all_generated_sql.extend(generated_sql)
@@ -344,11 +345,11 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
                 input_ids, attention_mask=encoder_mask, max_length=512
             )
             generated_sql = [
-                " ".join(tokenizer.batch_decode(g, skip_special_tokens=True))
-                for g in predicted_sql
+                tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
             ]
             with open("logs/sql/inference_sql.txt", "a", encoding="utf8") as f:
                 for sql_command in generated_sql:
+                    print(sql_command)
                     f.write(sql_command + "\n")
 
             all_generated_sql.extend(generated_sql)
