@@ -310,7 +310,7 @@ def eval_epoch(
                 input_ids,
                 attention_mask=encoder_mask,
                 max_length=512,
-                num_beams=4,
+                num_beams=5,
             )
             generated_sql = [
                 tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
@@ -368,7 +368,7 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
                 input_ids,
                 attention_mask=encoder_mask,
                 max_length=512,
-                num_beams=4,
+                num_beams=5,
             )
             generated_sql = [
                 tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
