@@ -72,12 +72,14 @@ class T5Dataset(Dataset):
 
     def __getitem__(self, idx):
         item = {
-            "input_ids": self.texts[idx]['input_ids'].flatten(),
-            "attention_mask": self.texts[idx]['attention_mask'].flatten()
+            "input_ids": self.texts[idx]["input_ids"].flatten(),
+            "attention_mask": self.texts[idx]["attention_mask"].flatten(),
         }
         if self.sql_commands is not None:
-            item["labels"] = self.sql_commands[idx]['input_ids'].flatten()
-            item["decoder_attention_mask"] = self.sql_commands[idx]['attention_mask'].flatten()
+            item["labels"] = self.sql_commands[idx]["input_ids"].flatten()
+            item["decoder_attention_mask"] = self.sql_commands[idx][
+                "attention_mask"
+            ].flatten()
         return item
 
 
