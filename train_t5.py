@@ -289,10 +289,12 @@ def eval_epoch(
                 input_ids, attention_mask=encoder_mask, max_length=512
             )
             generated_sql = [
-                tokenizer.decode(
-                    g, skip_special_tokens=True, clean_up_tokenization_spaces=True
-                )
-                for g in predicted_sql
+                " ".join(
+                    tokenizer.batch_decode(
+                        g, skip_special_tokens=True
+                    ))
+                    for g in predicted_sql
+
             ]
             with open(
                 f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
@@ -346,10 +348,12 @@ def test_inference(args, model, test_loader, model_sql_path, model_record_path):
                 input_ids, attention_mask=encoder_mask, max_length=512
             )
             generated_sql = [
-                tokenizer.decode(
-                    g, skip_special_tokens=True, clean_up_tokenization_spaces=True
-                )
+                " ".join(
+                    tokenizer.batch_decode(
+                        g, skip_special_tokens=True
+                    ))
                 for g in predicted_sql
+
             ]
             with open("logs/sql/inference_sql.txt", "a", encoding="utf8") as f:
                 for sql_command in generated_sql:

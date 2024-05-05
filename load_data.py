@@ -57,13 +57,13 @@ class T5Dataset(Dataset):
             prompt = f"translate English to SQL: {question}"
             prompts.append(prompt)
 
-        tokenized_texts = [tokenizer.encode(text) for text in prompts]
+        tokenized_texts = [tokenizer(text, return_tensors="pt") for text in prompts]
         if split == "test":
             return tokenized_texts, None
 
         sql_file = os.path.join(data_folder, f"{split}.sql")
         sql_queries = load_lines(sql_file)
-        tokenized_sql = [tokenizer.encode(sql) for sql in sql_queries]
+        tokenized_sql = [tokenizer(sql, return_tensors="pt") for sql in sql_queries]
 
         return tokenized_texts, tokenized_sql
 
@@ -71,9 +71,13 @@ class T5Dataset(Dataset):
         return len(self.texts)
 
     def __getitem__(self, idx):
-        item = {"input_ids": torch.tensor(self.texts[idx], dtype=torch.long)}
+        item = {
+            "input_ids": self.texts[idx]['input_ids'].flatten(),
+            "attention_mask": self.texts[idx]['attention_mask'].flatten()
+        }
         if self.sql_commands is not None:
-            item["labels"] = torch.tensor(self.sql_commands[idx], dtype=torch.long)
+            item["labels"] = self.sql_commands[idx]['input_ids'].flatten()
+            item["decoder_attention_mask"] = self.sql_commands[idx]['attention_mask'].flatten()
         return item
 
 
@@ -138,7 +142,7 @@ def test_collate_fn(batch):
     # TODO
     input_ids = [item["input_ids"] for item in batch]
     input_ids_padded = pad_sequence(input_ids, batch_first=True, padding_value=PAD_IDX)
-    encoder_mask = (input_ids_padded != PAD_IDX).type(torch.long)
+    encoder_mask = [item["attention_mask"] for item in batch]
     initial_decoder_inputs = torch.full((len(batch), 1), tokenizer.eos_token_id).type(
         torch.long
     )
