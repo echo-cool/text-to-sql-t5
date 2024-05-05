@@ -193,7 +193,7 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
     for encoder_input, encoder_mask, decoder_input, decoder_targets, _ in tqdm(
-            train_loader
+        train_loader
     ):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
@@ -227,14 +227,14 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
 
 
 def eval_epoch(
-        args,
-        epoch_number,
-        model,
-        dev_loader,
-        gt_sql_pth,
-        model_sql_path,
-        gt_record_path,
-        model_record_path,
+    args,
+    epoch_number,
+    model,
+    dev_loader,
+    gt_sql_pth,
+    model_sql_path,
+    gt_record_path,
+    model_record_path,
 ):
     """
     You must implement the evaluation loop to be using during training. We recommend keeping track
@@ -293,7 +293,7 @@ def eval_epoch(
                 tokenizer.decode(g, skip_special_tokens=True) for g in predicted_sql
             ]
             with open(
-                    f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
+                f"logs/sql/epoch_sql_{epoch_number}.txt", "a", encoding="utf8"
             ) as f:
                 for sql_command in generated_sql:
                     print(sql_command)
