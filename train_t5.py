@@ -208,9 +208,13 @@ def train_epoch(args, model, train_loader, optimizer, scheduler):
     total_tokens = 0
     criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
 
-    for encoder_input, encoder_mask, decoder_input, decoder_targets, initial_decoder_inputs in tqdm(
-        train_loader
-    ):
+    for (
+        encoder_input,
+        encoder_mask,
+        decoder_input,
+        decoder_targets,
+        initial_decoder_inputs,
+    ) in tqdm(train_loader):
         optimizer.zero_grad()
         encoder_input = encoder_input.to(DEVICE)
         encoder_mask = encoder_mask.to(DEVICE)
