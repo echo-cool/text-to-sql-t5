@@ -2,5 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/data/train.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/results/t5_ft_experiment_dev.sql" dialect="AZURE" />
   </component>
 </project>
