@@ -139,6 +139,11 @@ def train(args, model, train_loader, dev_loader, optimizer, scheduler):
         print(f"Epoch {epoch}: Average train loss was {tr_loss}")
         if args.skip_train_eval:
             save_model(checkpoint_dir, model, best=True)
+            if args.use_wandb:
+                result_dict = {
+                    "train/loss": tr_loss,
+                }
+                wandb.log(result_dict, step=epoch)
             continue
         eval_loss, record_f1, record_em, sql_em, error_rate, error_message = eval_epoch(
             args,
