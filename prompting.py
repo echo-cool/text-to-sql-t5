@@ -81,6 +81,7 @@ def create_prompt(sentence, k):
         f"Given the sentence: '{sentence}'\n"
         f"Using the schema provided below, write the corresponding SQL query and nothing else.\n"
         f"Schema details:\n{schema}\n"
+        f"Context: Today is 1991/01/19"
         "--------------------------------\n"
         "SQL Query:"
     )
