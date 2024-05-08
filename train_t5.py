@@ -21,8 +21,9 @@ from load_data import load_t5_data, tokenizer
 from utils import compute_metrics, save_queries_and_records
 
 # Check for TPU and use it if available
-if 'COLAB_TPU_ADDR' in os.environ:
+if "COLAB_TPU_ADDR" in os.environ:
     import torch_xla.core.xla_model as xm
+
     DEVICE = xm.xla_device()
 # Check for CUDA GPU and use it if available
 elif torch.cuda.is_available():
