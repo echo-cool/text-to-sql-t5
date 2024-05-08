@@ -103,23 +103,25 @@ def exp_kshot(tokenizer, model, inputs, k):
     """
     raw_outputs = []
     extracted_queries = []
-    if not os.path.exists('logs'):
-        os.makedirs('logs')
+    if not os.path.exists("logs"):
+        os.makedirs("logs")
 
-    if os.path.exists('logs/prompt.txt'):
-        os.remove('logs/prompt.txt')
+    if os.path.exists("logs/prompt.txt"):
+        os.remove("logs/prompt.txt")
 
-    if not os.path.exists('logs/prompt.txt'):
-        with open('logs/prompt.txt', 'w') as f:
-            f.write('Prompt logs\n')
+    if not os.path.exists("logs/prompt.txt"):
+        with open("logs/prompt.txt", "w") as f:
+            f.write("Prompt logs\n")
             f.write(f"Model: {model}\n")
-            f.write('\t============================== \n\n\n')
+            f.write("\t============================== \n\n\n")
 
     for i, sentence in tqdm(enumerate(inputs), total=len(inputs)):
         prompt = create_prompt(sentence, k)  # Looking at the prompt may also help
-        with open('logs/prompt.txt', 'a') as f:
-            f.write(str(i) + '\n')
-            f.write("\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓PROMPT START↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n")
+        with open("logs/prompt.txt", "a") as f:
+            f.write(str(i) + "\n")
+            f.write(
+                "\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓PROMPT START↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n"
+            )
             f.write(prompt)
             f.write("\n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑PROMPT END↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n")
 
@@ -132,10 +134,14 @@ def exp_kshot(tokenizer, model, inputs, k):
         )  # How does the response look like? You may need to parse it
         raw_outputs.append(response)
 
-        with open('logs/prompt.txt', 'a') as f:
-            f.write("\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓RAW OUTPUT↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n")
+        with open("logs/prompt.txt", "a") as f:
+            f.write(
+                "\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓RAW OUTPUT↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n"
+            )
             f.write("raw: " + response)
-            f.write("\n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑RAW OUTPUT END↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n")
+            f.write(
+                "\n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑RAW OUTPUT END↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n"
+            )
 
         # Extract the SQL query
         extracted_query = extract_sql_query(response)
@@ -143,11 +149,15 @@ def exp_kshot(tokenizer, model, inputs, k):
         if extracted_query is None:
             extracted_query = "No SQL query extracted"
             print(f"Error extracting query for prompt {i},  response: {response}")
-        with open('logs/prompt.txt', 'a') as f:
-            f.write("\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓EXTRACTED QUERY↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n")
+        with open("logs/prompt.txt", "a") as f:
+            f.write(
+                "\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓EXTRACTED QUERY↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n"
+            )
             f.write("extracted: " + extracted_query)
-            f.write("\n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑EXTRACTED QUERY END↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n")
-            f.write('\t\t ==== END ====\n')
+            f.write(
+                "\n↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑EXTRACTED QUERY END↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n"
+            )
+            f.write("\t\t ==== END ====\n")
         # tqdm.write(f"Response: {response}")
 
         # tqdm.write(f"Extracted query: {extracted_query}")
