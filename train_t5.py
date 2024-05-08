@@ -31,7 +31,7 @@ elif torch.cuda.is_available():
 # Default to CPU if neither TPU nor GPU is available
 else:
     DEVICE = torch.device("cpu")
-
+print(f"Using device: {DEVICE}")
 
 PAD_IDX = 0
 
