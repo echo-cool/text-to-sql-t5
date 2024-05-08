@@ -92,14 +92,15 @@ def create_prompt(sentence, k):
         f"Text: {sentence}\n"
         f"SQL:"
     )
-    if k > 0:
-        example_prompts = [
-            f"Text: Enter an example text here.\nSQL: Enter corresponding SQL here.\n"
-            for _ in range(k)
-        ]
-        full_prompt = "\n".join(example_prompts) + base_prompt
-    else:
-        full_prompt = base_prompt
+    full_prompt = base_prompt
+    # if k > 0:
+    #     example_prompts = [
+    #         f"Text: Enter an example text here.\nSQL: Enter corresponding SQL here.\n"
+    #         for _ in range(k)
+    #     ]
+    #     full_prompt = "\n".join(example_prompts) + base_prompt
+    # else:
+    #     full_prompt = base_prompt
     return full_prompt
 
 
@@ -193,6 +194,8 @@ def initialize_model_and_tokenizer(model_name, to_quantize=False):
             model = AutoModelForCausalLM.from_pretrained(
                 model_id, torch_dtype=torch.bfloat16
             ).to(DEVICE)
+    else:
+        raise ValueError(f"Model {model_name} not supported.")
     return tokenizer, model
 
 
@@ -220,7 +223,7 @@ def main():
     for eval_split in ["dev", "test"]:
         eval_x, eval_y = (dev_x, dev_y) if eval_split == "dev" else (test_x, None)
 
-        # raw_outputs, extracted_queries = exp_kshot(tokenizer, model, eval_x, shot)
+        raw_outputs, extracted_queries = exp_kshot(tokenizer, model, eval_x, shot)
 
         # You can add any post-processing if needed
         # You can compute the records with `compute_records``
@@ -231,11 +234,11 @@ def main():
         model_sql_path = os.path.join(f"results/gemma_{experiment_name}_dev.sql")
         model_record_path = os.path.join(f"records/gemma_{experiment_name}_dev.pkl")
 
-        # save_queries_and_records(
-        #     sql_queries=extracted_queries,
-        #     sql_path=model_sql_path,
-        #     record_path=model_record_path,
-        # )
+        save_queries_and_records(
+            sql_queries=extracted_queries,
+            sql_path=model_sql_path,
+            record_path=model_record_path,
+        )
 
         sql_em, record_em, record_f1, model_error_msgs, error_rate = eval_outputs(
             eval_x,
