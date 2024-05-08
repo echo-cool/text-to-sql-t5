@@ -28,6 +28,7 @@ else:
 
 if DEVICE == torch.device("cpu"):
     import torch_xla.core.xla_model as xm
+
     DEVICE = xm.xla_device()
 
 print(f"Using device: {DEVICE}")
