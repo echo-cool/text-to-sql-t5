@@ -26,11 +26,6 @@ if torch.cuda.is_available():
 else:
     DEVICE = torch.device("cpu")
 
-if DEVICE == torch.device("cpu"):
-    import torch_xla.core.xla_model as xm
-
-    DEVICE = xm.xla_device()
-
 print(f"Using device: {DEVICE}")
 
 PAD_IDX = 0
