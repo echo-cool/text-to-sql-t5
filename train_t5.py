@@ -20,7 +20,18 @@ from transformers import GenerationConfig
 from load_data import load_t5_data, tokenizer
 from utils import compute_metrics, save_queries_and_records
 
-DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+# Check for TPU and use it if available
+if 'COLAB_TPU_ADDR' in os.environ:
+    import torch_xla.core.xla_model as xm
+    DEVICE = xm.xla_device()
+# Check for CUDA GPU and use it if available
+elif torch.cuda.is_available():
+    DEVICE = torch.device("cuda")
+# Default to CPU if neither TPU nor GPU is available
+else:
+    DEVICE = torch.device("cpu")
+
+
 PAD_IDX = 0
 
 
