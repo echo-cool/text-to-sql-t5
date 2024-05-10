@@ -79,7 +79,8 @@ def create_prompt(sentence, k):
     data_folder = "data"
     schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
     examples = get_examples(data_folder)
-    prompt = f"f{schema}\n\n"
+    # prompt = f"f{schema}\n\n"
+    prompt = ""
     for i in range(k):
         prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"
     prompt += f"Natural language: {sentence}\n"
@@ -235,12 +236,13 @@ def main():
     set_random_seeds(args.seed)
 
     data_folder = "data"
-    train_x, train_y, dev_x, dev_y, test_x = load_prompting_data(data_folder)
+    train_x, train_y, dev_x, dev_y, test_x, test_y = load_prompting_data(data_folder)
 
     # Model and tokenizer
     tokenizer, model = initialize_model_and_tokenizer(model_name, to_quantize)
 
     for eval_split in ["dev", "test"]:
+        print(f"Running {eval_split} set evaluation")
         eval_x, eval_y = (dev_x, dev_y) if eval_split == "dev" else (test_x, None)
 
         raw_outputs, extracted_queries = exp_kshot(tokenizer, model, eval_x, shot)
@@ -251,35 +253,35 @@ def main():
         gt_sql_path = os.path.join(f"data/{eval_split}.sql")
         gt_record_path = os.path.join(f"records/ground_truth_{eval_split}.pkl")
 
-        model_sql_path = os.path.join(f"results/llm_test.sql")
-        model_record_path = os.path.join(f"records/llm_test.pkl")
+        model_sql_path = os.path.join(f"results/llm_{eval_split}.sql")
+        model_record_path = os.path.join(f"records/llm_{eval_split}.pkl")
 
         save_queries_and_records(
             sql_queries=extracted_queries,
             sql_path=model_sql_path,
             record_path=model_record_path,
         )
+        if eval_split != "test":
+            sql_em, record_em, record_f1, model_error_msgs, error_rate = eval_outputs(
+                eval_x,
+                eval_y,
+                gt_sql_path,
+                model_sql_path,
+                gt_record_path,
+                model_record_path,
+            )
+            print(f"{eval_split} set results: ")
+            print(f"Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}")
+            print(
+                f"{eval_split} set results: {error_rate * 100:.2f}% of the generated outputs led to SQL errors"
+            )
 
-        sql_em, record_em, record_f1, model_error_msgs, error_rate = eval_outputs(
-            eval_x,
-            eval_y,
-            gt_sql_path,
-            model_sql_path,
-            gt_record_path,
-            model_record_path,
-        )
-        print(f"{eval_split} set results: ")
-        print(f"Record F1: {record_f1}, Record EM: {record_em}, SQL EM: {sql_em}")
-        print(
-            f"{eval_split} set results: {error_rate * 100:.2f}% of the generated outputs led to SQL errors"
-        )
+            # Save results
+            # You can for instance use the `save_queries_and_records` function
 
-        # Save results
-        # You can for instance use the `save_queries_and_records` function
-
-        # Save logs, if needed
-        log_path = "logs/log-prompting.txt"  # to specify
-        save_logs(log_path, sql_em, record_em, record_f1, model_error_msgs)
+            # Save logs, if needed
+            log_path = "logs/log-prompting.txt"  # to specify
+            save_logs(log_path, sql_em, record_em, record_f1, model_error_msgs)
 
 
 if __name__ == "__main__":

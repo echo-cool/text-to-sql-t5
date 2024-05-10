@@ -202,5 +202,5 @@ def process_data(data_folder, split, tokenizer):
 def load_prompting_data(data_folder):
     train_x, train_y = process_data(data_folder, "train", tokenizer)
     dev_x, dev_y = process_data(data_folder, "dev", tokenizer)
-    test_x = process_data(data_folder, "test", tokenizer)
-    return train_x, train_y, dev_x, dev_y, test_x
+    test_x, test_y = process_data(data_folder, "test", tokenizer)
+    return train_x, train_y, dev_x, dev_y, test_x, test_y
