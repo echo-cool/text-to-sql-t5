@@ -166,7 +166,7 @@ def exp_kshot(tokenizer, model, inputs, k):
 
 
 def eval_outputs(
-        eval_x, eval_y, gt_sql_pth, model_sql_path, gt_record_path, model_record_path
+    eval_x, eval_y, gt_sql_pth, model_sql_path, gt_record_path, model_record_path
 ):
     """
     Evaluate the outputs of the model by computing the metrics.
