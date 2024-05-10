@@ -12,7 +12,7 @@ from utils import (
     save_queries_and_records,
     compute_records,
 )
-from prompting_utils import read_schema, extract_sql_query, save_logs
+from prompting_utils import read_schema, extract_sql_query, save_logs, get_examples
 from load_data import load_prompting_data
 
 DEVICE = (
@@ -33,7 +33,7 @@ def get_args():
         "-s",
         "--shot",
         type=int,
-        default=0,
+        default=2,
         help="Number of examples for k-shot learning (0 for zero-shot)",
     )
     parser.add_argument("-p", "--ptype", type=int, default=0, help="Prompt type")
@@ -66,26 +66,25 @@ def get_args():
 
 def create_prompt(sentence, k):
     """
-    Function for creating a prompt for zero or few-shot prompting.
-
-    Add/modify the arguments as needed.
+    Function for creating a prompt for few-shot prompting.
 
     Inputs:
-        * sentence (str): A text string
-        * k (int): Number of examples in k-shot prompting
+        sentence (str): A text string for which the SQL needs to be generated.
+        k (int): Number of examples to include in the prompt.
+        examples (list of tuples): Each tuple contains a natural language sentence and its corresponding SQL query.
+
+    Outputs:
+        prompt (str): A constructed prompt including k examples followed by the new sentence.
     """
     data_folder = "data"
     schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
-    # Constructing a directive prompt for SQL generation
-    prompt = (
-        f"Given the sentence: '{sentence}'\n"
-        f"Using the schema provided below, write the corresponding SQL query and nothing else.\n"
-        f"Schema details:\n{schema}\n"
-        f"Context: Today is 1991/01/19"
-        "--------------------------------\n"
-        "SQL Query:"
-    )
-
+    examples = get_examples(data_folder)
+    prompt = f"f{schema}\n\n"
+    for i in range(k):
+        prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"
+    prompt += f"Natural language: {sentence}\n"
+    # prompt += f"Schema: {schema}\n"
+    prompt += "SQL Query:"
     return prompt
 
 
@@ -167,7 +166,7 @@ def exp_kshot(tokenizer, model, inputs, k):
 
 
 def eval_outputs(
-    eval_x, eval_y, gt_sql_pth, model_sql_path, gt_record_path, model_record_path
+        eval_x, eval_y, gt_sql_pth, model_sql_path, gt_record_path, model_record_path
 ):
     """
     Evaluate the outputs of the model by computing the metrics.
@@ -252,8 +251,8 @@ def main():
         gt_sql_path = os.path.join(f"data/{eval_split}.sql")
         gt_record_path = os.path.join(f"records/ground_truth_{eval_split}.pkl")
 
-        model_sql_path = os.path.join(f"results/gemma_{experiment_name}_dev.sql")
-        model_record_path = os.path.join(f"records/gemma_{experiment_name}_dev.pkl")
+        model_sql_path = os.path.join(f"results/llm_test.sql")
+        model_record_path = os.path.join(f"records/llm_test.pkl")
 
         save_queries_and_records(
             sql_queries=extracted_queries,

@@ -1,3 +1,3 @@
-python prompting.py --shot 0 \
+python prompting.py --shot 2 \
 --model gemma \
 --quantization \

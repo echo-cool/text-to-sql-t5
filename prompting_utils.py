@@ -1,8 +1,23 @@
 import os
 import re
 import json
+from functools import cache
 
 
+@cache
+def get_examples(data_folder):
+    natural_language = []
+    sql = []
+    with open(os.path.join(data_folder, "dev.nl"), "r") as f:
+        natural_language = f.readlines()
+        natural_language = [line.strip() for line in natural_language]
+    with open(os.path.join(data_folder, "dev.sql"), "r") as f:
+        sql = f.readlines()
+        sql = [line.strip() for line in sql]
+    return list(zip(natural_language, sql))
+
+
+@cache
 def read_schema(schema_path):
     """
     Read the .schema file
@@ -33,7 +48,7 @@ def extract_sql_query(response):
     match = re.search(pattern, response, re.DOTALL)
 
     if match:
-        return match.group(1).strip()
+        return match.group(1).strip().replace("\n", " ")
     else:
         return None
 
