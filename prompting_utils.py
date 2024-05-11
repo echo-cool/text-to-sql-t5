@@ -52,13 +52,16 @@ def extract_sql_query(response, k):
     response = response[k]
     # print(response)
 
-    pattern = r"```sql(.*?)```<eos>"
+    pattern = r"```(?:sql)?(.*?)```"
 
     match = re.search(pattern, response, re.DOTALL)
 
     if match:
         return match.group(1).strip().replace("\n", " ")
     else:
+        print("No SQL query found in the response")
+        print(response)
+        print("End of response")
         return None
 
 
