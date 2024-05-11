@@ -83,7 +83,7 @@ def create_prompt(sentence, k):
     # prompt = ""
     for i in range(k):
         prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"
-    prompt += f"Question:\nNatural language: {sentence}\n"
+    prompt += f"Natural language: {sentence}\n"
     # prompt += f"Schema: {schema}\n"
     prompt += "SQL Query:"
     return prompt
@@ -145,7 +145,7 @@ def exp_kshot(tokenizer, model, inputs, k):
             )
 
         # Extract the SQL query
-        extracted_query = extract_sql_query(response)
+        extracted_query = extract_sql_query(response, k)
         extracted_queries.append(extracted_query)
         if extracted_query is None:
             extracted_query = "No SQL query extracted"

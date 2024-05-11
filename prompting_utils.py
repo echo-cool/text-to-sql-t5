@@ -41,16 +41,16 @@ def read_schema(schema_path):
     # return json.dumps(schema)
 
 
-def extract_sql_query(response):
+def extract_sql_query(response, k):
     """
     Extract the SQL query from the model's response
     """
-    response = response.split("Question:\n")
-    if len(response) < 2:
-        print("Error: Response does not contain SQL query - Split failed")
+    response = response.split("Natural language: ")
+    if len(response) < k + 1:
+        print("Response does not contain the k-th example")
         return None
-    else:
-        response = response[1]
+    response = response[k]
+    # print(response)
 
     pattern = r"```sql(.*?)```<eos>"
 
