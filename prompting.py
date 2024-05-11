@@ -79,8 +79,8 @@ def create_prompt(sentence, k):
     data_folder = "data"
     schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
     examples = get_examples(data_folder)
-    # prompt = f"f{schema}\n\n"
-    prompt = ""
+    prompt = f"f{schema}\n\n"
+    # prompt = ""
     for i in range(k):
         prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"
     prompt += f"Natural language: {sentence}\n"
