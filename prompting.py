@@ -77,9 +77,9 @@ def create_prompt(sentence, k):
         prompt (str): A constructed prompt including k examples followed by the new sentence.
     """
     data_folder = "data"
-    schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
+    schema = read_schema(os.path.join(data_folder, "ddl.sql"))
     examples = get_examples(data_folder)
-    prompt = f"f{schema}\n\n"
+    prompt = f"{schema}\n\n"
     # prompt = ""
     for i in range(k):
         prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"

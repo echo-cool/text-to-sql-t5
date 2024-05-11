@@ -22,21 +22,23 @@ def read_schema(schema_path):
     """
     Read the .schema file
     """
-    schema = {}
-
     with open(schema_path, "r") as f:
-        data = json.load(f)
-        for table_name in data["ents"]:
-            schema[table_name] = schema.get(
-                table_name,
-                {
-                    "columns": [],
-                },
-            )
-            for column in data["ents"][table_name]:
-                schema[table_name]["columns"].append(column)
-
-    return json.dumps(schema)
+        return f.read()
+    # schema = {}
+    #
+    # with open(schema_path, "r") as f:
+    #     data = json.load(f)
+    #     for table_name in data["ents"]:
+    #         schema[table_name] = schema.get(
+    #             table_name,
+    #             {
+    #                 "columns": [],
+    #             },
+    #         )
+    #         for column in data["ents"][table_name]:
+    #             schema[table_name]["columns"].append(column)
+    #
+    # return json.dumps(schema)
 
 
 def extract_sql_query(response):

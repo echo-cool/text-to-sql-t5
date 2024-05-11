@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08d6e06d-d456-404d-a8c1-eb083206cf7c" name="Changes" comment="" />
+    <list default="true" id="08d6e06d-d456-404d-a8c1-eb083206cf7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompting.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompting_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompting_utils.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +163,7 @@
       <workItem from="1715373837628" duration="731000" />
       <workItem from="1715375007270" duration="785000" />
       <workItem from="1715378172867" duration="103000" />
-      <workItem from="1715378291430" duration="4386000" />
+      <workItem from="1715378291430" duration="4596000" />
     </task>
     <servers />
   </component>
@@ -200,7 +206,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$.coverage" NAME=" Coverage Results" MODIFIED="1714775158293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$prompting.coverage" NAME="prompting Coverage Results" MODIFIED="1715383191234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$prompting.coverage" NAME="prompting Coverage Results" MODIFIED="1715387105887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$train_t5.coverage" NAME="train_t5 Coverage Results" MODIFIED="1714946915587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
