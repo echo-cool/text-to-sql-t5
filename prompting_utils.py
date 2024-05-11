@@ -45,7 +45,7 @@ def extract_sql_query(response):
     """
     Extract the SQL query from the model's response
     """
-    pattern = r"```(?:sql)?(.*?)```"
+    pattern = r"```(?:sql)?(.*?)```<eos>"
 
     match = re.search(pattern, response, re.DOTALL)
 
