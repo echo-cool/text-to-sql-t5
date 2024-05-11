@@ -83,7 +83,7 @@ def create_prompt(sentence, k):
     # prompt = ""
     for i in range(k):
         prompt += f"Natural language: {examples[i][0]}\nSQL Query: \n```sql\n{examples[i][1]}\n```\n\n"
-    prompt += f"Natural language: {sentence}\n"
+    prompt += f"-----\nNatural language: {sentence}\n"
     # prompt += f"Schema: {schema}\n"
     prompt += "SQL Query:"
     return prompt

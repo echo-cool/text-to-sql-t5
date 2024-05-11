@@ -45,6 +45,13 @@ def extract_sql_query(response):
     """
     Extract the SQL query from the model's response
     """
+    response = response.split("-----\n")
+    if len(response) < 2:
+        print("Error: Response does not contain SQL query - Split failed")
+        return None
+    else:
+        response = response[1]
+
     pattern = r"```sql(.*?)```<eos>"
 
     match = re.search(pattern, response, re.DOTALL)
