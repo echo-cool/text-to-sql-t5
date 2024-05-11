@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08d6e06d-d456-404d-a8c1-eb083206cf7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prompting.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prompting_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompting_utils.py" afterDir="false" />
     </list>
@@ -25,23 +24,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests in train_t5.py.executor": "Run",
-    "Python.prompting.executor": "Run",
-    "Python.train_t5.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/Programs/cs5740-sp24-assignment-4-echo-cool/results",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in train_t5.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prompting.executor&quot;: &quot;Run&quot;,
+    &quot;Python.train_t5.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Programs/cs5740-sp24-assignment-4-echo-cool/results&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\results" />
@@ -162,6 +161,7 @@
       <workItem from="1715375007270" duration="785000" />
       <workItem from="1715378172867" duration="103000" />
       <workItem from="1715378291430" duration="7905000" />
+      <workItem from="1715454316285" duration="53000" />
     </task>
     <servers />
   </component>
