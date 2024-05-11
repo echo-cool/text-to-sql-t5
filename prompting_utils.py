@@ -49,7 +49,7 @@ def extract_sql_query(response, k):
     if len(response) < k + 1:
         print("Response does not contain the k-th example")
         return None
-    response = response[k]
+    response = response[-1]
     # print(response)
 
     pattern = r"```(?:sql)?(.*?)```"
