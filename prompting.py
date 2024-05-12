@@ -255,6 +255,7 @@ def main():
 
         model_sql_path = os.path.join(f"results/llm_{eval_split}.sql")
         model_record_path = os.path.join(f"records/llm_{eval_split}.pkl")
+        # extracted_queries = open('results/llm_test.sql', 'r').readlines()
 
         save_queries_and_records(
             sql_queries=extracted_queries,
