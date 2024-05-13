@@ -21,9 +21,7 @@ def setup_wandb(args):
     """
     wandb.login(key="c23edd97e88391a7c39b05c285e644a0bc72ef34")
     wandb.init(
-        project="t5-sql-translation",
-        entity="yuyang-wang821",
-        config=args,
+        project="t5-sql-translation", entity="yuyang-wang821", config=args,
     )
     print("wandb setup complete with project:", "t5-sql-translation")
 
