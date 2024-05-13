@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08d6e06d-d456-404d-a8c1-eb083206cf7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/records/t5_scr_test.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/records/t5_scr_test.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2fkCnTtScJvzx6EOpo8ffgk0Y1c" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,7 +31,7 @@
     "Python.train_t5.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/Programs/cs5740-sp24-assignment-4-echo-cool/results",
+    "last_opened_file_path": "E:/Programs/cs5740-sp24-assignment-4-echo-cool/records",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -42,8 +43,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\results" />
       <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\records" />
+      <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\results" />
       <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool" />
     </key>
   </component>
@@ -161,7 +162,7 @@
       <workItem from="1715378172867" duration="103000" />
       <workItem from="1715378291430" duration="7905000" />
       <workItem from="1715454316285" duration="1290000" />
-      <workItem from="1715487263064" duration="4917000" />
+      <workItem from="1715487263064" duration="5556000" />
     </task>
     <servers />
   </component>
