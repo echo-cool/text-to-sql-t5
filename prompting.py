@@ -197,14 +197,16 @@ def initialize_model_and_tokenizer(model_name, to_quantize=False):
         tokenizer = GemmaTokenizerFast.from_pretrained(model_id)
         # Native weights exported in bfloat16 precision, but you can use a different precision if needed
         model = GemmaForCausalLM.from_pretrained(
-            model_id, torch_dtype=torch.bfloat16,
+            model_id,
+            torch_dtype=torch.bfloat16,
         ).to(DEVICE)
     elif model_name == "codegemma":
         model_id = "google/codegemma-7b-it"
         tokenizer = GemmaTokenizer.from_pretrained(model_id)
         if to_quantize:
             nf4_config = BitsAndBytesConfig(
-                load_in_4bit=True, bnb_4bit_quant_type="nf4",  # 4-bit quantization
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",  # 4-bit quantization
             )
             model = AutoModelForCausalLM.from_pretrained(
                 model_id, torch_dtype=torch.bfloat16, config=nf4_config
