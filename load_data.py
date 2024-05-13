@@ -1,12 +1,9 @@
-import os, random, re, string
-from collections import Counter
-from tqdm import tqdm
-import pickle
-
-from torch.utils.data import Dataset, DataLoader
-from torch.nn.utils.rnn import pad_sequence
+import os
+import re
 
 import nltk
+from torch.nn.utils.rnn import pad_sequence
+from torch.utils.data import Dataset, DataLoader
 
 from prompting_utils import read_schema
 
@@ -18,6 +15,19 @@ tokenizer = T5TokenizerFast.from_pretrained("google-t5/t5-small")
 PAD_IDX = tokenizer.pad_token_id
 # print(tokenizer.pad_token_id)
 DECODER_BEGIN_TOKEN_ID = 32099
+
+
+def clean_text(text):
+    text = text.lower()
+    text = re.sub(r"([.,!?])", r" \1 ", text)
+    text = re.sub(r"[^a-zA-Z.,!?]+", r" ", text)
+    return text
+
+
+def clean_sql(text):
+    text = re.sub(r"([.,!?])", r" \1 ", text)
+    text = re.sub(r"[^a-zA-Z0-9.,!?]+", r" ", text)
+    return text
 
 
 class T5Dataset(Dataset):
@@ -41,6 +51,7 @@ class T5Dataset(Dataset):
         text_file = os.path.join(data_folder, f"{split}.nl")
         schema = read_schema(os.path.join(data_folder, "flight_database.schema"))
         texts = load_lines(text_file)
+        texts = [clean_text(text) for text in texts]
         prompts = []
         for text in texts:
             question = text
@@ -60,6 +71,7 @@ class T5Dataset(Dataset):
 
         sql_file = os.path.join(data_folder, f"{split}.sql")
         sql_queries = load_lines(sql_file)
+        # sql_queries = [clean_sql(sql) for sql in sql_queries]
         tokenized_sql = []
         for sql in sql_queries:
             sql = sql.replace("\n", "")
