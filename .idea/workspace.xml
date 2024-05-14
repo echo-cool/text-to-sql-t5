@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08d6e06d-d456-404d-a8c1-eb083206cf7c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/records/t5_scr_test.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/records/t5_scr_test.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/t5_scr_test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/results/t5_scr_test.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,11 +36,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python tests.Python tests in train_t5.py.executor": "Run",
+    "Python.draw.executor": "Run",
     "Python.prompting.executor": "Run",
     "Python.train_t5.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/Programs/cs5740-sp24-assignment-4-echo-cool/records",
+    "last_opened_file_path": "E:/Programs/cs5740-sp24-assignment-4-echo-cool/results",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -43,12 +53,35 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\records" />
       <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\results" />
+      <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool\records" />
       <recent name="E:\Programs\cs5740-sp24-assignment-4-echo-cool" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.prompting">
+  <component name="RunManager" selected="Python.draw">
+    <configuration name="draw" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cs5740-sp24-assignment-4-echo-cool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logs/draw.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="prompting" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="cs5740-sp24-assignment-4-echo-cool" />
       <option name="ENV_FILES" value="" />
@@ -115,11 +148,13 @@
     </configuration>
     <list>
       <item itemvalue="Python.train_t5" />
+      <item itemvalue="Python.draw" />
       <item itemvalue="Python.prompting" />
       <item itemvalue="Python tests.Python tests in train_t5.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.draw" />
         <item itemvalue="Python.prompting" />
         <item itemvalue="Python tests.Python tests in train_t5.py" />
       </list>
@@ -162,7 +197,8 @@
       <workItem from="1715378172867" duration="103000" />
       <workItem from="1715378291430" duration="7905000" />
       <workItem from="1715454316285" duration="1290000" />
-      <workItem from="1715487263064" duration="5556000" />
+      <workItem from="1715487263064" duration="6067000" />
+      <workItem from="1715637622487" duration="2615000" />
     </task>
     <servers />
   </component>
@@ -195,6 +231,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$.coverage" NAME=" Coverage Results" MODIFIED="1714775158293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$prompting.coverage" NAME="prompting Coverage Results" MODIFIED="1715487504673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$draw.coverage" NAME="draw Coverage Results" MODIFIED="1715637680206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/logs" />
     <SUITE FILE_PATH="coverage/cs5740_sp24_assignment_4_echo_cool$train_t5.coverage" NAME="train_t5 Coverage Results" MODIFIED="1714946915587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
