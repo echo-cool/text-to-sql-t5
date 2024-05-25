@@ -1,5 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/bV_AQ86u)
-# Assignment 4
+# text-to-sql-t5
 
 ## Environment
 
@@ -23,12 +22,6 @@ python evaluate.py
   --development_records records/ground_truth_dev.pkl
 ```
 
-## Submission
-
-You need to submit your test SQL queries and their associated SQL records. Please only submit your final files corresponding to the test set.
-
-For SQL queries, ensure that the name of the submission files (in the `results/` subfolder) are:
-- `{t5_ft, ft_scr, gemma}_test.sql`
 
 For database records, ensure that the name of the submission files (in the `records/` subfolder) are:
 - `{t5_ft, ft_scr, gemma}_test.pkl`
